@@ -1,25 +1,25 @@
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route, Link } from 'react-router-dom';
+import Layout from './components/Layout';
+import Home from './pages/home';
+import List from './pages/list/CreateList';
+import Budget from './pages/budget/BudgetHome';
+import Store from './pages/store/FromStore';
+import StoreShop from "./pages/store/StoreShop";
 
-function Home() {
-    return <h1>Home Page</h1>
-}
-
-function About() {
-    return <h1>About Page</h1>
-}
 
 function App() {
+    //Defines which page shoes for each URL
     return (
-        <div>
-            <nav>
-                <Link to="/">Home</Link> | <Link to="/about">About</Link>
-            </nav>
+        <Layout>
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/list" element={<List />} />
+                <Route path="/budget" element={<Budget />} />
+                <Route path="/store" element={<Store />} />
+                <Route path="/store/:storeName" element={<StoreShop />} />
             </Routes>
-        </div>
-    )
+        </Layout>
+    );
 }
 
-export default App
+export default App;
