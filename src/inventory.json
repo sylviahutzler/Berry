@@ -1,6 +1,6 @@
 {
-  "products": [
-    {
+  "Produce": {
+    "BAN001": {
       "sku": "BAN001",
       "name": "Organic Bananas",
       "description": "Fresh organic bananas, perfectly ripe",
@@ -9,7 +9,7 @@
       "quantity": 150,
       "store": "Town and Country"
     },
-    {
+    "BAN002": {
       "sku": "BAN002",
       "name": "Regular Bananas",
       "description": "Conventional yellow bananas",
@@ -18,7 +18,7 @@
       "quantity": 200,
       "store": "Albertsons"
     },
-    {
+    "BAN003": {
       "sku": "BAN003",
       "name": "Plantain Bananas",
       "description": "Green plantains for cooking",
@@ -27,7 +27,7 @@
       "quantity": 75,
       "store": "Town and Country"
     },
-    {
+    "APP001": {
       "sku": "APP001",
       "name": "Honeycrisp Apples",
       "description": "Sweet and crispy honeycrisp apples",
@@ -36,7 +36,7 @@
       "quantity": 120,
       "store": "Town and Country"
     },
-    {
+    "APP002": {
       "sku": "APP002",
       "name": "Granny Smith Apples",
       "description": "Tart green apples, great for baking",
@@ -45,7 +45,7 @@
       "quantity": 95,
       "store": "Albertsons"
     },
-    {
+    "APP003": {
       "sku": "APP003",
       "name": "Gala Apples",
       "description": "Sweet and mild gala apples",
@@ -54,7 +54,7 @@
       "quantity": 110,
       "store": "Albertsons"
     },
-    {
+    "APP004": {
       "sku": "APP004",
       "name": "Fuji Apples",
       "description": "Crisp and sweet fuji apples",
@@ -63,134 +63,7 @@
       "quantity": 85,
       "store": "Town and Country"
     },
-    {
-      "sku": "MLK001",
-      "name": "Whole Milk",
-      "description": "1 Gallon whole milk",
-      "category": "Dairy",
-      "price": 3.99,
-      "quantity": 60,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "MLK002",
-      "name": "2% Reduced Fat Milk",
-      "description": "1 Gallon 2% milk",
-      "category": "Dairy",
-      "price": 3.99,
-      "quantity": 75,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "MLK003",
-      "name": "Skim Milk",
-      "description": "1 Gallon fat-free milk",
-      "category": "Dairy",
-      "price": 3.99,
-      "quantity": 45,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "MLK004",
-      "name": "Almond Milk",
-      "description": "Unsweetened almond milk, half gallon",
-      "category": "Dairy",
-      "price": 4.49,
-      "quantity": 55,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "MLK005",
-      "name": "Oat Milk",
-      "description": "Creamy oat milk, half gallon",
-      "category": "Dairy",
-      "price": 4.99,
-      "quantity": 40,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "BRD001",
-      "name": "Sourdough Bread",
-      "description": "Artisan sourdough loaf",
-      "category": "Bakery",
-      "price": 5.99,
-      "quantity": 30,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "BRD002",
-      "name": "Whole Wheat Bread",
-      "description": "100% whole wheat sandwich bread",
-      "category": "Bakery",
-      "price": 3.49,
-      "quantity": 45,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "BRD003",
-      "name": "White Bread",
-      "description": "Classic white sandwich bread",
-      "category": "Bakery",
-      "price": 2.99,
-      "quantity": 55,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "BRD004",
-      "name": "Multigrain Bread",
-      "description": "Hearty multigrain loaf",
-      "category": "Bakery",
-      "price": 4.29,
-      "quantity": 35,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "BRD005",
-      "name": "Ciabatta Bread",
-      "description": "Italian ciabatta loaf",
-      "category": "Bakery",
-      "price": 4.99,
-      "quantity": 25,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "EGG001",
-      "name": "Large White Eggs",
-      "description": "Dozen large white eggs",
-      "category": "Dairy",
-      "price": 3.99,
-      "quantity": 80,
-      "store": "Albertsons"
-
-    },
-    {
-      "sku": "EGG002",
-      "name": "Large Brown Eggs",
-      "description": "Dozen large brown eggs",
-      "category": "Dairy",
-      "price": 4.49,
-      "quantity": 65,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "EGG003",
-      "name": "Free Range Eggs",
-      "description": "Dozen free range eggs",
-      "category": "Dairy",
-      "price": 5.99,
-      "quantity": 45,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "EGG004",
-      "name": "Organic Eggs",
-      "description": "Dozen organic cage-free eggs",
-      "category": "Dairy",
-      "price": 6.99,
-      "quantity": 35,
-      "store": "Town and Country"
-    },
-    {
+    "TOM001": {
       "sku": "TOM001",
       "name": "Roma Tomatoes",
       "description": "Fresh roma tomatoes",
@@ -199,7 +72,7 @@
       "quantity": 90,
       "store": "Albertsons"
     },
-    {
+    "TOM002": {
       "sku": "TOM002",
       "name": "Cherry Tomatoes",
       "description": "Sweet cherry tomatoes, 1 pint",
@@ -208,7 +81,7 @@
       "quantity": 60,
       "store": "Albertsons"
     },
-    {
+    "TOM003": {
       "sku": "TOM003",
       "name": "Beefsteak Tomatoes",
       "description": "Large beefsteak tomatoes",
@@ -217,52 +90,7 @@
       "quantity": 70,
       "store": "Town and Country"
     },
-    {
-      "sku": "CHE001",
-      "name": "Sharp Cheddar Cheese",
-      "description": "Sharp cheddar cheese, 8oz block",
-      "category": "Dairy",
-      "price": 4.99,
-      "quantity": 50,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "CHE002",
-      "name": "Mild Cheddar Cheese",
-      "description": "Mild cheddar cheese, 8oz block",
-      "category": "Dairy",
-      "price": 4.49,
-      "quantity": 55,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "CHE003",
-      "name": "Mozzarella Cheese",
-      "description": "Fresh mozzarella, 8oz",
-      "category": "Dairy",
-      "price": 5.49,
-      "quantity": 45,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "CHE004",
-      "name": "Swiss Cheese",
-      "description": "Swiss cheese slices, 8oz",
-      "category": "Dairy",
-      "price": 5.99,
-      "quantity": 40,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "CHE005",
-      "name": "Parmesan Cheese",
-      "description": "Grated parmesan, 8oz",
-      "category": "Dairy",
-      "price": 6.49,
-      "quantity": 35,
-      "store": "Town and Country"
-    },
-    {
+    "LET001": {
       "sku": "LET001",
       "name": "Romaine Lettuce",
       "description": "Fresh romaine hearts, 3 pack",
@@ -271,7 +99,7 @@
       "quantity": 55,
       "store": "Town and Country"
     },
-    {
+    "LET002": {
       "sku": "LET002",
       "name": "Iceberg Lettuce",
       "description": "Crisp iceberg lettuce head",
@@ -280,7 +108,7 @@
       "quantity": 65,
       "store": "Albertsons"
     },
-    {
+    "LET003": {
       "sku": "LET003",
       "name": "Butter Lettuce",
       "description": "Tender butter lettuce head",
@@ -289,43 +117,7 @@
       "quantity": 45,
       "store": "Town and Country"
     },
-    {
-      "sku": "YOG001",
-      "name": "Greek Yogurt Plain",
-      "description": "Plain Greek yogurt, 32oz",
-      "category": "Dairy",
-      "price": 5.99,
-      "quantity": 40,
-      "store": "Town and Country"
-    },
-    {
-      "sku": "YOG002",
-      "name": "Greek Yogurt Vanilla",
-      "description": "Vanilla Greek yogurt, 32oz",
-      "category": "Dairy",
-      "price": 5.99,
-      "quantity": 45,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "YOG003",
-      "name": "Greek Yogurt Strawberry",
-      "description": "Strawberry Greek yogurt, 32oz",
-      "category": "Dairy",
-      "price": 5.99,
-      "quantity": 35,
-      "store": "Albertsons"
-    },
-    {
-      "sku": "YOG004",
-      "name": "Regular Yogurt Mixed Berry",
-      "description": "Mixed berry yogurt, 6oz cups, 4-pack",
-      "category": "Dairy",
-      "price": 3.99,
-      "quantity": 50,
-      "store": "Town and Country"
-    },
-    {
+    "ORA001": {
       "sku": "ORA001",
       "name": "Navel Oranges",
       "description": "Sweet navel oranges, per lb",
@@ -334,7 +126,7 @@
       "quantity": 100,
       "store": "Albertsons"
     },
-    {
+    "ORA002": {
       "sku": "ORA002",
       "name": "Blood Oranges",
       "description": "Sweet blood oranges, per lb",
@@ -343,7 +135,7 @@
       "quantity": 60,
       "store": "Town and Country"
     },
-    {
+    "ORA003": {
       "sku": "ORA003",
       "name": "Mandarin Oranges",
       "description": "Easy-peel mandarins, 3lb bag",
@@ -351,8 +143,221 @@
       "price": 5.99,
       "quantity": 45,
       "store": "Albertsons"
+    }
+  },
+  "Dairy": {
+    "MLK001": {
+      "sku": "MLK001",
+      "name": "Whole Milk",
+      "description": "1 Gallon whole milk",
+      "category": "Dairy",
+      "price": 3.99,
+      "quantity": 60,
+      "store": "Town and Country"
     },
-    {
+    "MLK002": {
+      "sku": "MLK002",
+      "name": "2% Reduced Fat Milk",
+      "description": "1 Gallon 2% milk",
+      "category": "Dairy",
+      "price": 3.99,
+      "quantity": 75,
+      "store": "Albertsons"
+    },
+    "MLK003": {
+      "sku": "MLK003",
+      "name": "Skim Milk",
+      "description": "1 Gallon fat-free milk",
+      "category": "Dairy",
+      "price": 3.99,
+      "quantity": 45,
+      "store": "Albertsons"
+    },
+    "MLK004": {
+      "sku": "MLK004",
+      "name": "Almond Milk",
+      "description": "Unsweetened almond milk, half gallon",
+      "category": "Dairy",
+      "price": 4.49,
+      "quantity": 55,
+      "store": "Town and Country"
+    },
+    "MLK005": {
+      "sku": "MLK005",
+      "name": "Oat Milk",
+      "description": "Creamy oat milk, half gallon",
+      "category": "Dairy",
+      "price": 4.99,
+      "quantity": 40,
+      "store": "Town and Country"
+    },
+    "EGG001": {
+      "sku": "EGG001",
+      "name": "Large White Eggs",
+      "description": "Dozen large white eggs",
+      "category": "Dairy",
+      "price": 3.99,
+      "quantity": 80,
+      "store": "Albertsons"
+    },
+    "EGG002": {
+      "sku": "EGG002",
+      "name": "Large Brown Eggs",
+      "description": "Dozen large brown eggs",
+      "category": "Dairy",
+      "price": 4.49,
+      "quantity": 65,
+      "store": "Albertsons"
+    },
+    "EGG003": {
+      "sku": "EGG003",
+      "name": "Free Range Eggs",
+      "description": "Dozen free range eggs",
+      "category": "Dairy",
+      "price": 5.99,
+      "quantity": 45,
+      "store": "Town and Country"
+    },
+    "EGG004": {
+      "sku": "EGG004",
+      "name": "Organic Eggs",
+      "description": "Dozen organic cage-free eggs",
+      "category": "Dairy",
+      "price": 6.99,
+      "quantity": 35,
+      "store": "Town and Country"
+    },
+    "CHE001": {
+      "sku": "CHE001",
+      "name": "Sharp Cheddar Cheese",
+      "description": "Sharp cheddar cheese, 8oz block",
+      "category": "Dairy",
+      "price": 4.99,
+      "quantity": 50,
+      "store": "Town and Country"
+    },
+    "CHE002": {
+      "sku": "CHE002",
+      "name": "Mild Cheddar Cheese",
+      "description": "Mild cheddar cheese, 8oz block",
+      "category": "Dairy",
+      "price": 4.49,
+      "quantity": 55,
+      "store": "Albertsons"
+    },
+    "CHE003": {
+      "sku": "CHE003",
+      "name": "Mozzarella Cheese",
+      "description": "Fresh mozzarella, 8oz",
+      "category": "Dairy",
+      "price": 5.49,
+      "quantity": 45,
+      "store": "Albertsons"
+    },
+    "CHE004": {
+      "sku": "CHE004",
+      "name": "Swiss Cheese",
+      "description": "Swiss cheese slices, 8oz",
+      "category": "Dairy",
+      "price": 5.99,
+      "quantity": 40,
+      "store": "Albertsons"
+    },
+    "CHE005": {
+      "sku": "CHE005",
+      "name": "Parmesan Cheese",
+      "description": "Grated parmesan, 8oz",
+      "category": "Dairy",
+      "price": 6.49,
+      "quantity": 35,
+      "store": "Town and Country"
+    },
+    "YOG001": {
+      "sku": "YOG001",
+      "name": "Greek Yogurt Plain",
+      "description": "Plain Greek yogurt, 32oz",
+      "category": "Dairy",
+      "price": 5.99,
+      "quantity": 40,
+      "store": "Town and Country"
+    },
+    "YOG002": {
+      "sku": "YOG002",
+      "name": "Greek Yogurt Vanilla",
+      "description": "Vanilla Greek yogurt, 32oz",
+      "category": "Dairy",
+      "price": 5.99,
+      "quantity": 45,
+      "store": "Albertsons"
+    },
+    "YOG003": {
+      "sku": "YOG003",
+      "name": "Greek Yogurt Strawberry",
+      "description": "Strawberry Greek yogurt, 32oz",
+      "category": "Dairy",
+      "price": 5.99,
+      "quantity": 35,
+      "store": "Albertsons"
+    },
+    "YOG004": {
+      "sku": "YOG004",
+      "name": "Regular Yogurt Mixed Berry",
+      "description": "Mixed berry yogurt, 6oz cups, 4-pack",
+      "category": "Dairy",
+      "price": 3.99,
+      "quantity": 50,
+      "store": "Town and Country"
+    }
+  },
+  "Bakery": {
+    "BRD001": {
+      "sku": "BRD001",
+      "name": "Sourdough Bread",
+      "description": "Artisan sourdough loaf",
+      "category": "Bakery",
+      "price": 5.99,
+      "quantity": 30,
+      "store": "Town and Country"
+    },
+    "BRD002": {
+      "sku": "BRD002",
+      "name": "Whole Wheat Bread",
+      "description": "100% whole wheat sandwich bread",
+      "category": "Bakery",
+      "price": 3.49,
+      "quantity": 45,
+      "store": "Town and Country"
+    },
+    "BRD003": {
+      "sku": "BRD003",
+      "name": "White Bread",
+      "description": "Classic white sandwich bread",
+      "category": "Bakery",
+      "price": 2.99,
+      "quantity": 55,
+      "store": "Albertsons"
+    },
+    "BRD004": {
+      "sku": "BRD004",
+      "name": "Multigrain Bread",
+      "description": "Hearty multigrain loaf",
+      "category": "Bakery",
+      "price": 4.29,
+      "quantity": 35,
+      "store": "Town and Country"
+    },
+    "BRD005": {
+      "sku": "BRD005",
+      "name": "Ciabatta Bread",
+      "description": "Italian ciabatta loaf",
+      "category": "Bakery",
+      "price": 4.99,
+      "quantity": 25,
+      "store": "Town and Country"
+    }
+  },
+  "Meat": {
+    "CHK001": {
       "sku": "CHK001",
       "name": "Chicken Breast",
       "description": "Boneless skinless chicken breast, per lb",
@@ -361,7 +366,7 @@
       "quantity": 75,
       "store": "Albertsons"
     },
-    {
+    "CHK002": {
       "sku": "CHK002",
       "name": "Chicken Thighs",
       "description": "Boneless skinless chicken thighs, per lb",
@@ -370,7 +375,7 @@
       "quantity": 80,
       "store": "Albertsons"
     },
-    {
+    "CHK003": {
       "sku": "CHK003",
       "name": "Whole Chicken",
       "description": "Fresh whole chicken, per lb",
@@ -379,7 +384,7 @@
       "quantity": 40,
       "store": "Town and Country"
     },
-    {
+    "CHK004": {
       "sku": "CHK004",
       "name": "Chicken Wings",
       "description": "Fresh chicken wings, per lb",
@@ -388,7 +393,7 @@
       "quantity": 60,
       "store": "Albertsons"
     },
-    {
+    "GRB001": {
       "sku": "GRB001",
       "name": "Ground Beef 80/20",
       "description": "Ground beef 80% lean, per lb",
@@ -397,7 +402,7 @@
       "quantity": 70,
       "store": "Town and Country"
     },
-    {
+    "GRB002": {
       "sku": "GRB002",
       "name": "Ground Beef 90/10",
       "description": "Ground beef 90% lean, per lb",
@@ -406,7 +411,7 @@
       "quantity": 55,
       "store": "Town and Country"
     },
-    {
+    "GRB003": {
       "sku": "GRB003",
       "name": "Ground Beef 93/7",
       "description": "Ground beef 93% lean, per lb",
@@ -414,8 +419,10 @@
       "price": 8.99,
       "quantity": 40,
       "store": "Albertsons"
-    },
-    {
+    }
+  },
+  "Pantry": {
+    "RIC001": {
       "sku": "RIC001",
       "name": "White Rice",
       "description": "Long grain white rice, 2lb bag",
@@ -424,7 +431,7 @@
       "quantity": 90,
       "store": "Albertsons"
     },
-    {
+    "RIC002": {
       "sku": "RIC002",
       "name": "Brown Rice",
       "description": "Whole grain brown rice, 2lb bag",
@@ -433,7 +440,7 @@
       "quantity": 75,
       "store": "Albertsons"
     },
-    {
+    "RIC003": {
       "sku": "RIC003",
       "name": "Jasmine Rice",
       "description": "Fragrant jasmine rice, 2lb bag",
@@ -442,7 +449,7 @@
       "quantity": 60,
       "store": "Town and Country"
     },
-    {
+    "RIC004": {
       "sku": "RIC004",
       "name": "Basmati Rice",
       "description": "Aromatic basmati rice, 2lb bag",
@@ -451,7 +458,7 @@
       "quantity": 50,
       "store": "Town and Country"
     },
-    {
+    "PST001": {
       "sku": "PST001",
       "name": "Spaghetti Pasta",
       "description": "Classic spaghetti, 16oz box",
@@ -460,7 +467,7 @@
       "quantity": 100,
       "store": "Town and Country"
     },
-    {
+    "PST002": {
       "sku": "PST002",
       "name": "Penne Pasta",
       "description": "Penne rigate pasta, 16oz box",
@@ -469,7 +476,7 @@
       "quantity": 95,
       "store": "Albertsons"
     },
-    {
+    "PST003": {
       "sku": "PST003",
       "name": "Fettuccine Pasta",
       "description": "Wide fettuccine noodles, 16oz box",
@@ -478,7 +485,7 @@
       "quantity": 80,
       "store": "Albertsons"
     },
-    {
+    "PST004": {
       "sku": "PST004",
       "name": "Whole Wheat Pasta",
       "description": "Whole wheat spaghetti, 16oz box",
@@ -486,8 +493,10 @@
       "price": 2.49,
       "quantity": 70,
       "store": "Town and Country"
-    },
-    {
+    }
+  },
+  "Beverages": {
+    "JUI001": {
       "sku": "JUI001",
       "name": "Orange Juice",
       "description": "Fresh squeezed orange juice, 64oz",
@@ -496,7 +505,7 @@
       "quantity": 50,
       "store": "Town and Country"
     },
-    {
+    "JUI002": {
       "sku": "JUI002",
       "name": "Apple Juice",
       "description": "100% apple juice, 64oz",
@@ -505,7 +514,7 @@
       "quantity": 60,
       "store": "Albertsons"
     },
-    {
+    "JUI003": {
       "sku": "JUI003",
       "name": "Cranberry Juice",
       "description": "100% cranberry juice, 64oz",
@@ -514,7 +523,7 @@
       "quantity": 40,
       "store": "Albertsons"
     },
-    {
+    "COF001": {
       "sku": "COF001",
       "name": "Ground Coffee Medium Roast",
       "description": "Medium roast ground coffee, 12oz bag",
@@ -523,7 +532,7 @@
       "quantity": 55,
       "store": "Albertsons"
     },
-    {
+    "COF002": {
       "sku": "COF002",
       "name": "Ground Coffee Dark Roast",
       "description": "Dark roast ground coffee, 12oz bag",
@@ -532,7 +541,7 @@
       "quantity": 50,
       "store": "Albertsons"
     },
-    {
+    "COF003": {
       "sku": "COF003",
       "name": "Whole Bean Coffee",
       "description": "Whole bean medium roast, 12oz bag",
@@ -541,7 +550,7 @@
       "quantity": 35,
       "store": "Town and Country"
     },
-    {
+    "COF004": {
       "sku": "COF004",
       "name": "Decaf Coffee",
       "description": "Decaf ground coffee, 12oz bag",
@@ -550,5 +559,5 @@
       "quantity": 30,
       "store": "Albertsons"
     }
-  ]
+  }
 }

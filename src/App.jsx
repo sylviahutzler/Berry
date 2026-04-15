@@ -2,9 +2,11 @@ import { Routes, Route, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Home from './pages/home';
 import List from './pages/list/CreateList';
-import Budget from './pages/budget/BudgetHome';
-import Store from './pages/store/FromStore';
-import StoreShop from "./pages/store/StoreShop";
+import Store from "./pages/store/StoreShop";
+import SignUp from "./components/sign-up/SignUp";
+import SignIn from "./components/sign-in/SignIn";
+import Cart from "./pages/Cart";
+import InStoreShopping from "./pages/InStoreShopping";
 
 
 function App() {
@@ -14,9 +16,11 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/list" element={<List />} />
-                <Route path="/budget" element={<Budget />} />
                 <Route path="/store" element={<Store />} />
-                <Route path="/store/:storeName" element={<StoreShop />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/in-store-shopping" element={<InStoreShopping />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin"  element={<SignIn />}/>
             </Routes>
         </Layout>
     );

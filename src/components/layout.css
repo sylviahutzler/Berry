@@ -18,6 +18,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: padding 0.2s ease, box-shadow 0.2s ease;
 }
 
 .header-content {
@@ -38,7 +39,7 @@ body {
     cursor: pointer;
     font-weight: 600;
     position: relative;
-    transition: transform 0.2s;
+    transition: transform 0.2s, padding 0.2s ease, font-size 0.2s ease;
     font-size: 14px;
     text-decoration: none;
     display: inline-block;
@@ -68,6 +69,26 @@ body {
 .header_logo img {
     height: 200px;
     width: auto;
+    transition: height 0.2s ease;
+}
+
+.header_logo-link {
+    display: inline-flex;
+}
+
+.header.header-scrolled {
+    padding: 4px 16px;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.12);
+}
+
+.header.header-scrolled .header_logo img {
+    height: 120px;
+}
+
+.header.header-scrolled .list-button,
+.header.header-scrolled .budget_store_button {
+    padding: 4px 12px;
+    font-size: 13px;
 }
 
 main {
