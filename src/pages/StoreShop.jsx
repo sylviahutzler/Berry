@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { db, auth, database } from '../../firebase';
+import { db, auth, database } from '../firebase';
 import { ref, get, set, push, update } from 'firebase/database';
 import { onAuthStateChanged } from 'firebase/auth';
 import {
@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { collection, getDocs } from 'firebase/firestore';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { forestGreen, slate, gold, coral, mintGreen, cream } from '../components/shared-theme/themePrimitives';
 
 
 export default function StoreProducts() {
@@ -79,7 +80,7 @@ export default function StoreProducts() {
                 querySnapshot.forEach((doc) => {
                     products.push({
                         id: doc.id,
-                        category: category,  // Add category since it's the collection name
+                        category: category,
                         ...doc.data()
                     });
                 });
@@ -92,7 +93,7 @@ export default function StoreProducts() {
             setUniqueStores(stores);
             setLoading(false);
         } catch (err) {
-            setError('Error loading products: ' + err.message);
+            setError('Sign in to view products');
             setLoading(false);
         }
     }
@@ -260,7 +261,7 @@ export default function StoreProducts() {
 
     return (
         <Container maxWidth="xl" sx={{ py: 4 }}>
-            <Typography variant="h3" component="h1" gutterBottom>
+            <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: slate[500],}} variant="h3" component="h1" gutterBottom >
                 Find products at a specific store
             </Typography>
 
@@ -270,12 +271,20 @@ export default function StoreProducts() {
             <Grid container spacing={3} alignItems="flex-start">
                 <Grid item xs={12} md={8} lg={9}>
                     <Box sx={{ mb: 4 }}>
-                        <Typography variant="h6" gutterBottom>
+                        <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                            color: slate[500],}} variant="h6" gutterBottom>
                             Select a Store:
                         </Typography>
-                        <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3 }}>
+                        <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3,   }}>
                             {uniqueStores.map((store) => (
                                 <Button
+                                    sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: slate[500],
+                                        borderColor: slate[500],
+                                        '&:hover': {
+                                            borderColor: slate[700],
+                                            backgroundColor: mintGreen[500],
+                                        }}}
                                     key={store}
                                     variant={selectedStore === store ? 'contained' : 'outlined'}
                                     onClick={() => setSelectedStore(store)}
@@ -285,7 +294,7 @@ export default function StoreProducts() {
                             ))}
                         </Box>
 
-                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                        <Typography variant="body2" sx={{ color: slate[500], }}>
                             {filteredProducts.length} products
                         </Typography>
                     </Box>
@@ -295,21 +304,21 @@ export default function StoreProducts() {
                             <CircularProgress />
                         </Box>
                     ) : (
-                        <Grid container spacing={3}>
+                        <Grid container spacing={3}  >
                             {filteredProducts.map((product) => (
-                                <Grid item xs={12} sm={6} xl={4} key={product.id}>
-                                    <Card>
-                                        <CardContent>
-                                            <Typography variant="h6" component="div" gutterBottom>
+                                <Grid item xs={12} sm={6} xl={4} key={product.id}  >
+                                    <Card sx={{ backgroundColor: cream[500], p: 2 }}>
+                                        <CardContent >
+                                            <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',color: slate[500]}} variant="h6" component="div" gutterBottom>
                                                 {product.name}
                                             </Typography>
-                                            <Typography variant="body2" gutterBottom>
+                                            <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',color: slate[500]}} variant="body2" gutterBottom>
                                                 Isle: {product.category}
                                             </Typography>
-                                            <Typography variant="h6" color="success.main" sx={{ my: 1 }}>
+                                            <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', color: slate[500], my: 1}} variant="h6">
                                                 ${product.price.toFixed(2)}
                                             </Typography>
-                                            <Typography variant="body2" gutterBottom>
+                                            <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',color: slate[500]}} variant="body2" gutterBottom>
                                                 {product.description}
                                             </Typography>
                                             <Button
@@ -317,8 +326,10 @@ export default function StoreProducts() {
                                                 variant="contained"
                                                 sx={{
                                                     mt: 2,
-                                                    backgroundColor: '#8B9D83',
-                                                    '&:hover': { backgroundColor: '#7a8a72' },
+                                                    color: cream[500],
+                                                    backgroundColor: slate[500],
+                                                    '&:hover': { backgroundColor: slate[700] },
+                                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
                                                 }}
                                                 startIcon={<ShoppingCartIcon />}
                                                 onClick={() => handleAddToCart(product)}
@@ -352,29 +363,34 @@ export default function StoreProducts() {
                             pr: { md: 0.5 },
                         }}
                     >
-                        <Card sx={{ mb: 2 }}>
+                        <Card sx={{ mb: 2, backgroundColor: slate[500], p: 2  }}>
                             <CardContent>
-                                <Typography variant="h6" gutterBottom>
+                                <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: cream[500],fontSize: { xs: '2rem', md: '2rem' },}} variant="h6" gutterBottom>
                                     Shopping List
                                 </Typography>
                                 {!user ? (
-                                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                    <Typography variant="body2" sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: cream[500]}}>
                                         Sign in to see your saved list.
                                     </Typography>
                                 ) : shoppingList.length === 0 ? (
-                                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                    <Typography variant="body2" sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: cream[500]}}>
                                         No list items yet. Add items on the List page.
                                     </Typography>
                                 ) : (
                                     shoppingList.map((item) => (
                                         <Box
                                             key={item.id}
-                                            sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.75 }}
+                                            sx={{
+                                                color: cream[500], display: 'flex',
+                                                justifyContent: 'space-between',
+                                                mb: 0.75 }}
                                         >
-                                            <Typography variant="body2" sx={{ pr: 1 }}>
+                                            <Typography variant="body2" sx={{ pr: 1, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }}>
                                                 {item.name}
                                             </Typography>
-                                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                            <Typography variant="body2" sx={{  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }}>
                                                 x{item.quantity || 1}
                                             </Typography>
                                         </Box>
@@ -383,13 +399,13 @@ export default function StoreProducts() {
                             </CardContent>
                         </Card>
 
-                        <Card>
+                        <Card sx={{ mb: 2, backgroundColor: slate[500], p: 2  }}>
                             <CardContent>
-                                <Typography variant="h6" gutterBottom>
+                                <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: cream[500],fontSize: { xs: '2rem', md: '2rem' },}} variant="h6" gutterBottom>
                                     Budget Breakdown
                                 </Typography>
                                 {isEditingBudget ? (
-                                    <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
+                                    <Box >
                                         <TextField
                                             type="number"
                                             size="small"
@@ -399,42 +415,91 @@ export default function StoreProducts() {
                                             inputProps={{ min: 0, step: 0.01 }}
                                             fullWidth
                                             disabled={!user}
+                                            sx={{
+                                                '& .MuiOutlinedInput-root': {
+                                                    color: cream[500], // Input text color
+                                                    '& fieldset': {
+                                                        borderColor: cream[500], // Border color
+                                                    },
+                                                    '&:hover fieldset': {
+                                                        borderColor: mintGreen[500], // Border on hover
+                                                    },
+                                                    '&.Mui-focused fieldset': {
+                                                        borderColor: cream[500], // Border when focused
+                                                    }
+                                                },
+                                                '& .MuiInputBase-input': {
+                                                    color: cream[500], // Text color
+                                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                },
+                                                '& .MuiInputLabel-root': {
+                                                    color: cream[500], // Label color
+                                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                },
+                                                '& .MuiInputLabel-root.Mui-focused': {
+                                                    color: cream[500], // After click color
+                                                },
+                                            }}
+
                                         />
-                                        <Button variant="contained" onClick={saveBudget} disabled={!user}>
+                                        <Button sx={{ backgroundColor: cream[500], color: slate[500],'&:hover': {
+                                                backgroundColor: mintGreen[700], // Hover color
+                                            }, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }} variant="contained" onClick={saveBudget} disabled={!user}>
                                             Save
                                         </Button>
                                     </Box>
                                 ) : (
                                     <Box sx={{ mb: 2 }}>
                                         <Button
+                                            sx={{
+                                                backgroundColor: cream[500],
+                                                color: slate[500],
+                                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                '&:hover': {
+                                                    backgroundColor: mintGreen[500], // Darker on hover
+                                                },
+                                                '&:active': {
+                                                    backgroundColor: mintGreen[700], // Even darker when clicked
+                                                },
+                                                '&:disabled': {
+                                                    backgroundColor: cream[300],
+                                                    color: cream[500],
+                                                }
+                                            }}
                                             variant="outlined"
                                             onClick={() => {
                                                 setBudgetInput(budget !== null ? budget.toString() : '');
                                                 setIsEditingBudget(true);
                                             }}
                                             disabled={!user}
+
+
                                         >
                                             Edit
                                         </Button>
                                     </Box>
                                 )}
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                                    <Typography variant="body2">Budget</Typography>
-                                    <Typography variant="body2">
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1,
+                                    color: cream[500], }}>
+                                    <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif'}} variant="body2">Budget</Typography>
+                                    <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif'}} variant="body2">
                                         {budget !== null ? `$${budget.toFixed(2)}` : 'Not set'}
                                     </Typography>
                                 </Box>
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                                    <Typography variant="body2">Cart Spend</Typography>
-                                    <Typography variant="body2">${subtotal.toFixed(2)}</Typography>
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1,
+                                    color: cream[500], }}>
+                                    <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif'}} variant="body2">Cart Spend</Typography>
+                                    <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif'}} variant="body2">${subtotal.toFixed(2)}</Typography>
                                 </Box>
-                                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-                                    <Typography variant="body2">Remaining</Typography>
+                                <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                    color: cream[500], }}>
+                                    <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif'}} variant="body2">Remaining</Typography>
                                     <Typography
                                         variant="body2"
                                         sx={{
+                                            fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
                                             fontWeight: 'bold',
-                                            color: remainingBudget !== null && remainingBudget < 0 ? 'error.main' : 'success.main',
+                                            color: remainingBudget !== null && remainingBudget < 0 ? coral[200] : forestGreen[200],
                                         }}
                                     >
                                         {remainingBudget !== null ? `$${remainingBudget.toFixed(2)}` : 'Set a budget'}
@@ -443,40 +508,49 @@ export default function StoreProducts() {
 
                                 <Divider sx={{ my: 1.5 }} />
 
-                                <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                                <Typography variant="subtitle2" sx={{ mb: 1, fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                                    color: cream[500], fontSize: { xs: '2rem', md: '2rem' },}}>
                                     By Category
                                 </Typography>
                                 {Object.keys(spendingByCategory).length === 0 ? (
-                                    <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.5 }}>
-                                        No spend yet.
+                                    <Typography variant="body2" sx={{ fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: cream[500], mb: 1.5 }}>
+                                        No items selected yet.
                                     </Typography>
                                 ) : (
                                     Object.entries(spendingByCategory).map(([category, amount]) => (
                                         <Box
                                             key={category}
-                                            sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}
+                                            sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5,  }}
                                         >
-                                            <Typography variant="body2">{category}</Typography>
-                                            <Typography variant="body2">${amount.toFixed(2)}</Typography>
+                                            <Typography sx={{ fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                color: cream[500]}}
+                                                        variant="body2">{category}</Typography>
+                                            <Typography sx={{ fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                color: cream[500]}}
+                                                        variant="body2">${amount.toFixed(2)}</Typography>
                                         </Box>
                                     ))
                                 )}
 
-                                <Typography variant="subtitle2" sx={{ mt: 1.5, mb: 1 }}>
+                                <Typography variant="subtitle2" sx={{ fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                                    color: cream[500], fontSize: { xs: '2rem', md: '2rem' },mt: 1.5, mb: 1 }}>
                                     By Store
                                 </Typography>
                                 {Object.keys(spendingByStore).length === 0 ? (
-                                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                    <Typography variant="body2" sx={{  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: cream[500] }}>
                                         No spend yet.
                                     </Typography>
                                 ) : (
                                     Object.entries(spendingByStore).map(([store, amount]) => (
                                         <Box
                                             key={store}
-                                            sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.5 }}
+                                            sx={{
+                                                color: cream[500], display: 'flex', justifyContent: 'space-between', mb: 0.5 }}
                                         >
-                                            <Typography variant="body2">{store}</Typography>
-                                            <Typography variant="body2">${amount.toFixed(2)}</Typography>
+                                            <Typography sx={{  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',}} variant="body2">{store}</Typography>
+                                            <Typography sx={{  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',}} variant="body2">${amount.toFixed(2)}</Typography>
                                         </Box>
                                     ))
                                 )}

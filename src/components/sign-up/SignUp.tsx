@@ -21,6 +21,7 @@ import { Link as RouterLink } from "react-router-dom";
 import { auth, googleProvider } from "../../firebase";
 import { createUserWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import {forestGreen, slate, gold, coral, mintGreen, cream} from "../shared-theme/themePrimitives";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -85,39 +86,115 @@ export default function SignUp(props: { disableCustomTheme?: boolean }) {
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
       <SignUpContainer direction="column" justifyContent="center">
-        <Card variant="outlined">
-          Asian Art Website Logo
-          <Typography component="h1" variant="h4" sx={{ textAlign: "center" }}>Sign up</Typography>
+        <Card sx={{ backgroundColor: cream[500], p: 2 }} variant="outlined">
+          <Typography component="h1" variant="h4" sx={{ textAlign: "center", fontFamily: '"Meow Script", "Meow Script_R", cursive', color: slate[500], }}>Sign up</Typography>
 
           <Box component="form" onSubmit={handleSignUp} sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}>
             <FormControl>
-              <FormLabel htmlFor="name">Full name</FormLabel>
-              <TextField id="name" name="name" placeholder="Jon Snow" fullWidth value={name} onChange={(e)=>setName(e.target.value)} error={!!nameError} helperText={nameError}/>
+              <FormLabel sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                color: slate[500]}} htmlFor="name">Full name</FormLabel>
+              <TextField sx={{
+                '& .MuiOutlinedInput-root': {
+                  color: slate[500], // Input text color
+                  '& fieldset': {
+                    borderColor: slate[500], // Border color
+                  },
+                  '&:hover fieldset': {
+                    borderColor: slate[500], // Border on hover
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: slate[500], // Border when focused
+                  }
+                },
+                '& .MuiInputBase-input': {
+                  color: slate[500], // Text color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root': {
+                  color: slate[500], // Label color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: slate[500], // After click color
+                },
+              }} id="name" name="name" placeholder="Jon Snow" fullWidth value={name} onChange={(e)=>setName(e.target.value)} error={!!nameError} helperText={nameError}/>
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <TextField id="email" name="email" placeholder="your@email.com" fullWidth value={email} onChange={(e)=>setEmail(e.target.value)} error={!!emailError} helperText={emailError}/>
+              <FormLabel sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                color: slate[500]}} htmlFor="email">Email</FormLabel>
+              <TextField sx={{
+                '& .MuiOutlinedInput-root': {
+                  color: slate[500], // Input text color
+                  '& fieldset': {
+                    borderColor: slate[500], // Border color
+                  },
+                  '&:hover fieldset': {
+                    borderColor: slate[500], // Border on hover
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: slate[500], // Border when focused
+                  }
+                },
+                '& .MuiInputBase-input': {
+                  color: slate[500], // Text color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root': {
+                  color: slate[500], // Label color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: slate[500], // After click color
+                },
+              }} id="email" name="email" placeholder="your@email.com" fullWidth value={email} onChange={(e)=>setEmail(e.target.value)} error={!!emailError} helperText={emailError}/>
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <TextField id="password" name="password" type="password" placeholder="••••••" fullWidth value={password} onChange={(e)=>setPassword(e.target.value)} error={!!passwordError} helperText={passwordError}/>
+              <FormLabel sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                color: slate[500]}} htmlFor="password">Password</FormLabel>
+              <TextField sx={{
+                '& .MuiOutlinedInput-root': {
+                  color: slate[500], // Input text color
+                  '& fieldset': {
+                    borderColor: slate[500], // Border color
+                  },
+                  '&:hover fieldset': {
+                    borderColor: slate[500], // Border on hover
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: slate[500], // Border when focused
+                  }
+                },
+                '& .MuiInputBase-input': {
+                  color: slate[500], // Text color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root': {
+                  color: slate[500], // Label color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: slate[500], // After click color
+                },
+              }} id="password" name="password" type="password" placeholder="••••••" fullWidth value={password} onChange={(e)=>setPassword(e.target.value)} error={!!passwordError} helperText={passwordError}/>
             </FormControl>
 
-            <FormControlLabel control={<Checkbox checked={allowEmails} onChange={(e)=>setAllowEmails(e.target.checked)} />} label="I want to receive updates via email." />
+
 
             {firebaseError && <Typography color="error">{firebaseError}</Typography>}
 
-            <Button type="submit" variant="contained" fullWidth>Sign up</Button>
+            <Button sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+              color: cream[500], backgroundcolor: slate[500]}} type="submit" variant="contained" fullWidth>Sign up</Button>
           </Box>
 
-          <Divider sx={{ my: 2 }}>or</Divider>
+          <Divider sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', color: forestGreen[500],}}>or</Divider>
 
           <Stack spacing={2}>
-            <Button fullWidth variant="outlined" startIcon={<GoogleIcon />} onClick={handleGoogleSignUp}>Sign up with Google</Button>
+            <Button sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',}} fullWidth variant="outlined" startIcon={<GoogleIcon />} onClick={handleGoogleSignUp}>Sign up with Google</Button>
 
-            <Typography sx={{ textAlign: "center" }}>
+            <Typography sx={{ textAlign: "center", fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+              color: slate[500] }}>
               Already have an account?{" "}
               <MuiLink component={RouterLink} to="/signin">Sign in</MuiLink>
             </Typography>

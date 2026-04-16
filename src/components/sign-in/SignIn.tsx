@@ -17,6 +17,7 @@ import { useNavigate, Link as RouterLink } from "react-router-dom";
 
 import { auth, googleProvider } from "../../firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {forestGreen, slate, gold, coral, mintGreen, cream} from "../shared-theme/themePrimitives";
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: "flex",
@@ -45,7 +46,7 @@ export default function SignIn() {
   const [password, setPassword] = React.useState("");
   const [error, setError] = React.useState("");
 
-  // ✅ Email/password login
+  // Email/password login
   const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
@@ -61,7 +62,7 @@ export default function SignIn() {
     }
   };
 
-  // ✅ Google login
+  // Google login
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -81,15 +82,40 @@ export default function SignIn() {
     <AppTheme>
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="center">
-        <Card variant="outlined">
-          <Typography component="h1" variant="h4" sx={{ textAlign: "center" }}>
+        <Card sx={{ backgroundColor: cream[500], p: 2 }} variant="outlined"variant="outlined">
+          <Typography component="h1" variant="h4" sx={{ textAlign: "center", fontFamily: '"Meow Script", "Meow Script_R", cursive', color: slate[500], }}>
             Sign In
           </Typography>
 
           <Box component="form" onSubmit={handleSignIn} sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 2 }}>
             <FormControl>
-              <FormLabel htmlFor="email">Email</FormLabel>
-              <TextField
+              <FormLabel sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                color: slate[500]}} htmlFor="email">Email</FormLabel>
+              <TextField sx={{
+                '& .MuiOutlinedInput-root': {
+                  color: slate[500], // Input text color
+                  '& fieldset': {
+                    borderColor: slate[500], // Border color
+                  },
+                  '&:hover fieldset': {
+                    borderColor: slate[500], // Border on hover
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: slate[500], // Border when focused
+                  }
+                },
+                '& .MuiInputBase-input': {
+                  color: slate[500], // Text color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root': {
+                  color: slate[500], // Label color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: slate[500], // After click color
+                },
+              }}
                 id="email"
                 name="email"
                 type="email"
@@ -100,8 +126,33 @@ export default function SignIn() {
             </FormControl>
 
             <FormControl>
-              <FormLabel htmlFor="password">Password</FormLabel>
-              <TextField
+              <FormLabel sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                color: slate[500]}} htmlFor="password">Password</FormLabel>
+              <TextField sx={{
+                '& .MuiOutlinedInput-root': {
+                  color: slate[500], // Input text color
+                  '& fieldset': {
+                    borderColor: slate[500], // Border color
+                  },
+                  '&:hover fieldset': {
+                    borderColor: slate[500], // Border on hover
+                  },
+                  '&.Mui-focused fieldset': {
+                    borderColor: slate[500], // Border when focused
+                  }
+                },
+                '& .MuiInputBase-input': {
+                  color: slate[500], // Text color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root': {
+                  color: slate[500], // Label color
+                  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                },
+                '& .MuiInputLabel-root.Mui-focused': {
+                  color: slate[500], // After click color
+                },
+              }}
                 id="password"
                 name="password"
                 type="password"
@@ -113,22 +164,24 @@ export default function SignIn() {
 
             {error && <Typography color="error">{error}</Typography>}
 
-            <Button type="submit" variant="contained" fullWidth>
+            <Button sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+              color: cream[500], backgroundcolor: slate[500]}} type="submit" variant="contained" fullWidth>
               Sign In
             </Button>
           </Box>
 
           <Divider sx={{ my: 2 }}>
-            <Typography sx={{ color: "text.secondary" }}>or</Typography>
+            <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', color: forestGreen[500],}}>or</Typography>
           </Divider>
 
           <Stack spacing={2}>
-            <Button fullWidth variant="outlined" startIcon={<GoogleIcon />} onClick={handleGoogleSignIn}>
+            <Button sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',}} fullWidth variant="outlined" startIcon={<GoogleIcon />} onClick={handleGoogleSignIn}>
               Sign in with Google
             </Button>
 
 
-            <Typography sx={{ textAlign: "center" }}>
+            <Typography sx={{ textAlign: "center", fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+              color: slate[500] }}>
               Don’t have an account?
               <MuiLink component={RouterLink} to="/signup"> Sign up</MuiLink>
             </Typography>

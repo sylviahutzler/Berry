@@ -1,8 +1,8 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import Layout from './components/layout';
 import Home from './pages/home';
-import List from './pages/list/CreateList';
-import Store from "./pages/store/StoreShop";
+import List from './pages/CreateList';
+import Store from "./pages/StoreShop";
 import SignUp from "./components/sign-up/SignUp";
 import SignIn from "./components/sign-in/SignIn";
 import Cart from "./pages/Cart";

@@ -1,15 +1,19 @@
-
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
+import { Link as MuiLink } from '@mui/material';
 import './layout.css';
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from '../firebase';
+import logo from '/berry_logo.svg';
+import { Typography, Button } from '@mui/material';
+import {forestGreen, slate, gold, coral, mintGreen, cream} from "./shared-theme/themePrimitives";
 
 function Layout({ children }) {
     const [user, setUser] = useState(null);
     const [isScrolled, setIsScrolled] = useState(false);
     const navigate = useNavigate();
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -36,41 +40,119 @@ function Layout({ children }) {
             console.error("Logout error:", error);
         }
     };
+
     return (
         <div>
             <div className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
                 <div className="header-content">
-                    <Link to="/" className="header_logo-link" aria-label="Go to home page">
+                    <RouterLink to="/" className="header_logo-link" aria-label="Go to home page">
                         <div className="header_logo">
-                            <img src="/berry_logo.svg" alt="Berry Logo"  />
+                            <img src={logo} alt="logo" />
                         </div>
-                    </Link>
-                    <Link to="/list" className="list-button">
+                    </RouterLink>
+
+                    <MuiLink
+                        component={RouterLink}
+                        to="/list"
+                        sx={{
+                            fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                            color: forestGreen[500],
+                            fontSize: { xs: '2rem', md: '2rem' },
+                            textDecoration: 'none',
+                            '&:hover': {
+                                color: mintGreen[700],
+                            }
+                        }}
+                        className="list-button"
+                    >
                         List
-                    </Link>
-                    <Link to="/store" className="budget_store_button">
+                    </MuiLink>
+
+                    <MuiLink
+                        component={RouterLink}
+                        to="/store"
+                        sx={{
+                            fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                            color: forestGreen[500],
+                            fontSize: { xs: '2rem', md: '2rem' },
+                            textDecoration: 'none',
+                            '&:hover': {
+                                color: mintGreen[700],
+                            }
+                        }}
+                        className="budget_store_button"
+                    >
                         Store
-                    </Link>
-                    <Link to="/Cart" className="budget_store_button">
+                    </MuiLink>
+
+                    <MuiLink
+                        component={RouterLink}
+                        to="/Cart"
+                        sx={{
+                            fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                            color: forestGreen[500],
+                            fontSize: { xs: '2rem', md: '2rem' },
+                            textDecoration: 'none',
+                            '&:hover': {
+                                color: mintGreen[700],
+                            }
+                        }}
+                        className="budget_store_button"
+                    >
                         Cart
-                        <span className="cart-count" id="cartCount">0</span>
-                    </Link>
+                    </MuiLink>
+
                     {user ? (
                         <>
-                    <span className="font-medium">
-                        Hello, {user.displayName || user.email}
-                    </span>
-                            <button
+                            <Typography sx={{
+                                fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                                color: forestGreen[500],
+                                fontSize: '2rem',
+                            }}>
+                                Hello, {user.displayName || user.email}
+                            </Typography>
+                            <Button
                                 onClick={handleLogout}
-                                className="font-medium px-3 py-1 rounded-lg transition-colors duration-200 hover:bg-[#8B9D83]"
+                                sx={{
+                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                    color: `${forestGreen[500]} !important`,
+                                    fontSize: { xs: '1.5rem', md: '1.5rem' },
+                                    textDecoration: 'none',
+                                    '&:hover': {
+                                        color: mintGreen[700],
+                                    }
+                                }}
+
                             >
                                 Logout
-                            </button>
+                            </Button>
                         </>
                     ) : (
                         <>
-                            <Link to="/signup">Sign Up</Link>
-                            <Link to="/signin">Sign In</Link>
+                            <MuiLink sx={{
+                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                color: forestGreen[500],
+                                fontSize: { xs: '2rem', md: '2rem' },
+                                textDecoration: 'none',
+                                '&:hover': {
+                                    color: mintGreen[700],
+                                }
+                            }} component={RouterLink}
+                                     to="/signup"
+                                     className="list-button"
+                            >Sign Up</MuiLink>
+                            <MuiLink sx={{
+                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                color: forestGreen[500],
+                                fontSize: { xs: '2rem', md: '2rem' },
+                                textDecoration: 'none',
+                                '&:hover': {
+                                    color: mintGreen[700],
+                                }
+                            }} component={RouterLink}
+                                     to="/signin"
+                                     className="list-button"
+                            >Sign In</MuiLink>
                         </>
                     )}
                 </div>

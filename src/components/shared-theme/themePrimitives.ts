@@ -1,10 +1,11 @@
-import { createTheme, alpha, PaletteMode, Shadows } from '@mui/material/styles';
+import { createTheme, alpha, PaletteMode, Shadows, PaletteOptions } from '@mui/material/styles';
 
 declare module '@mui/material/Paper' {
     interface PaperPropsVariantOverrides {
         highlighted: true;
     }
 }
+
 declare module '@mui/material/styles' {
     interface ColorRange {
         50: string;
@@ -24,430 +25,384 @@ declare module '@mui/material/styles' {
     interface Palette {
         baseShadow: string;
     }
+
+    interface PaletteOptions {
+        baseShadow?: string;
+    }
 }
+
+// Color Palettes
+export const forestGreen = {
+    50: '#f2f7f4',
+    100: '#dceee7',
+    200: '#c5e5da',
+    300: '#aedccd',
+    400: '#97d3bf',
+    500: '#2f6f4e', // main forest green
+    600: '#2a6347',
+    700: '#245740',
+    800: '#1f4b39',
+    900: '#193f32',
+};
+
+export const mintGreen = {
+    50: '#f5faf8',
+    100: '#dceef2',
+    200: '#c3e7ec',
+    300: '#aae0e6',
+    400: '#91d9e0',
+    500: '#dcefe3', // main mint green
+    600: '#c2e5d7',
+    700: '#a8dccb',
+    800: '#8ed3bf',
+    900: '#74cab3',
+};
+
+export const gold = {
+    50: '#fefcf4',
+    100: '#fbf3de',
+    200: '#f8eac8',
+    300: '#f5e1b2',
+    400: '#f2d89c',
+    500: '#e1b12c', // main gold
+    600: '#d3a027',
+    700: '#c58f22',
+    800: '#b77e1d',
+    900: '#a96d18',
+};
+
+export const coral = {
+    50: '#faf6f4',
+    100: '#f0dcd7',
+    200: '#e6c2ba',
+    300: '#dca89d',
+    400: '#d28e80',
+    500: '#c94a3a', // main coral
+    600: '#b84235',
+    700: '#a73a30',
+    800: '#96322b',
+    900: '#852a26',
+};
+
+export const slate = {
+    50: '#f7f9fa',
+    100: '#e7eef3',
+    200: '#d7e3ec',
+    300: '#c7d8e5',
+    400: '#b7cdde',
+    500: '#4e6e81', // main slate
+    600: '#466479',
+    700: '#3e5a71',
+    800: '#365069',
+    900: '#2e4661',
+};
+
+// Neutral grays
+export const gray = {
+    50: '#f9fafb',
+    100: '#f3f4f6',
+    200: '#e5e7eb',
+    300: '#d1d5db',
+    400: '#9ca3af',
+    500: '#6b7280',
+    600: '#4b5563',
+    700: '#374151',
+    800: '#1f2937',
+    900: '#111827',
+};
+
+export const cream = {
+    500:'#faf3dd',
+
+};
 
 const defaultTheme = createTheme();
 
-const customShadows: Shadows = [...defaultTheme.shadows];
-
-export const sage = {
-    50: '#f6f7f5',
-    100: '#e7ebe4',
-    200: '#d3dbcd',
-    300: '#bcc8b4',
-    400: '#a5b59b',
-    500: '#8B9D83', // your main sage
-    600: '#7a8c73',
-    700: '#667760',
-    800: '#505d4c',
-    900: '#3a4338',
-};
-
-export const pink = {
-    50: '#fff5f8',
-    100: '#ffe6ee',
-    200: '#ffc9d8',
-    300: '#ffb7c5', // main cherry blossom
-    400: '#ff9fb3',
-    500: '#ff7f9a',
-    600: '#e76682',
-    700: '#cc4d6a',
-    800: '#a63a54',
-    900: '#7a293e',
-};
-
-export const stone = {
-    50: '#f9f9f8',
-    100: '#f0f0ed',
-    200: '#e1e1db',
-    300: '#d1d1ca',
-    400: '#c1c1b8',
-    500: '#A8A8A0', // main stone
-    600: '#98988f',
-    700: '#83837a',
-    800: '#6b6b61',
-    900: '#525249',
-};
-
-export const peach = {
-    50: '#fff7f2',
-    100: '#ffeddf',
-    200: '#ffddc0',
-    300: '#ffcda1',
-    400: '#ffbd82',
-    500: '#FFD7BA', // main peach
-    600: '#f5c5a0',
-    700: '#e8ad82',
-    800: '#da9564',
-    900: '#c87d46',
-};
-
-export const lavender = {
-    50: '#faf8fd',
-    100: '#f3eef9',
-    200: '#e7ddf3',
-    300: '#dbccee',
-    400: '#cfbbe8',
-    500: '#D4C5E2', // main lavender
-    600: '#c5b0d4',
-    700: '#b29bc6',
-    800: '#9f86b8',
-    900: '#8b70aa',
-};
-
-
-
-
-//May or may not need, came with MUI
-export const orange = {
-    50: 'hsl(45, 100%, 97%)',
-    100: 'hsl(45, 92%, 90%)',
-    200: 'hsl(45, 94%, 80%)',
-    300: 'hsl(45, 90%, 65%)',
-    400: 'hsl(45, 90%, 40%)',
-    500: 'hsl(45, 90%, 35%)',
-    600: 'hsl(45, 91%, 25%)',
-    700: 'hsl(45, 94%, 20%)',
-    800: 'hsl(45, 95%, 16%)',
-    900: 'hsl(45, 93%, 12%)',
-};
-
-export const red = {
-    50: 'hsl(0, 100%, 97%)',
-    100: 'hsl(0, 92%, 90%)',
-    200: 'hsl(0, 94%, 80%)',
-    300: 'hsl(0, 90%, 65%)',
-    400: 'hsl(0, 90%, 40%)',
-    500: 'hsl(0, 90%, 30%)',
-    600: 'hsl(0, 91%, 25%)',
-    700: 'hsl(0, 94%, 18%)',
-    800: 'hsl(0, 95%, 12%)',
-    900: 'hsl(0, 93%, 6%)',
-};
-
-
-export const gray = {
-    50: 'hsl(220, 35%, 97%)',
-    100: 'hsl(220, 30%, 94%)',
-    200: 'hsl(220, 20%, 88%)',
-    300: 'hsl(220, 20%, 80%)',
-    400: 'hsl(220, 20%, 65%)',
-    500: 'hsl(220, 20%, 42%)',
-    600: 'hsl(220, 20%, 35%)',
-    700: 'hsl(220, 20%, 25%)',
-    800: 'hsl(220, 30%, 6%)',
-    900: 'hsl(220, 35%, 3%)',
-};
-
-export const green = {
-    50: 'hsl(120, 80%, 98%)',
-    100: 'hsl(120, 75%, 94%)',
-    200: 'hsl(120, 75%, 87%)',
-    300: 'hsl(120, 61%, 77%)',
-    400: 'hsl(120, 44%, 53%)',
-    500: 'hsl(120, 59%, 30%)',
-    600: 'hsl(120, 70%, 25%)',
-    700: 'hsl(120, 75%, 16%)',
-    800: 'hsl(120, 84%, 10%)',
-    900: 'hsl(120, 87%, 6%)',
-};
-
-export const brand = {
-    50: 'hsl(210, 100%, 95%)',
-    100: 'hsl(210, 100%, 92%)',
-    200: 'hsl(210, 100%, 80%)',
-    300: 'hsl(210, 100%, 65%)',
-    400: 'hsl(210, 98%, 48%)',
-    500: 'hsl(210, 98%, 42%)',
-    600: 'hsl(210, 98%, 55%)',
-    700: 'hsl(210, 100%, 35%)',
-    800: 'hsl(210, 100%, 16%)',
-    900: 'hsl(210, 100%, 21%)',
-};
-
-
-export const getDesignTokens = (mode: PaletteMode) => {
-    customShadows[1] =
-        mode === 'dark'
-            ? 'hsla(220, 30%, 5%, 0.7) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.8) 0px 8px 16px -5px'
-            : 'hsla(220, 30%, 5%, 0.07) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.07) 0px 8px 16px -5px';
-
-    return {
-        palette: {
-            mode,
-            primary: {
-                light: sage[200],
-                main: sage[400],
-                dark: sage[700],
-                contrastText: sage[50],
-                ...(mode === 'dark' && {
-                    contrastText: sage[50],
-                    light: sage[300],
-                    main: sage[400],
-                    dark: sage[700],
-                }),
-            },
-            info: {
-                light: brand[100],
-                main: brand[300],
-                dark: brand[600],
-                contrastText: gray[50],
-                ...(mode === 'dark' && {
-                    contrastText: brand[300],
-                    light: brand[500],
-                    main: brand[700],
-                    dark: brand[900],
-                }),
-            },
-            warning: {
-                light: orange[300],
-                main: orange[400],
-                dark: orange[800],
-                ...(mode === 'dark' && {
-                    light: orange[400],
-                    main: orange[500],
-                    dark: orange[700],
-                }),
-            },
-            error: {
-                light: red[300],
-                main: red[400],
-                dark: red[800],
-                ...(mode === 'dark' && {
-                    light: red[400],
-                    main: red[500],
-                    dark: red[700],
-                }),
-            },
-            success: {
-                light: green[300],
-                main: green[400],
-                dark: green[800],
-                ...(mode === 'dark' && {
-                    light: green[400],
-                    main: green[500],
-                    dark: green[700],
-                }),
-            },
-            grey: {
-                ...gray,
-            },
-            divider: mode === 'dark' ? alpha(gray[700], 0.6) : alpha(gray[300], 0.4),
-            background: {
-                default: 'hsl(0, 0%, 99%)',
-                paper: 'hsl(220, 35%, 97%)',
-                ...(mode === 'dark' && { default: gray[900], paper: 'hsl(220, 30%, 7%)' }),
-            },
-            text: {
-                primary: gray[800],
-                secondary: gray[600],
-                warning: orange[400],
-                ...(mode === 'dark' && { primary: 'hsl(0, 0%, 100%)', secondary: gray[400] }),
-            },
-            action: {
-                hover: alpha(gray[200], 0.2),
-                selected: `${alpha(gray[200], 0.3)}`,
-                ...(mode === 'dark' && {
-                    hover: alpha(gray[600], 0.2),
-                    selected: alpha(gray[600], 0.3),
-                }),
-            },
-        },
-        typography: {
-            fontFamily: 'Inter, sans-serif',
-            h1: {
-                fontSize: defaultTheme.typography.pxToRem(48),
-                fontWeight: 600,
-                lineHeight: 1.2,
-                letterSpacing: -0.5,
-            },
-            h2: {
-                fontSize: defaultTheme.typography.pxToRem(36),
-                fontWeight: 600,
-                lineHeight: 1.2,
-            },
-            h3: {
-                fontSize: defaultTheme.typography.pxToRem(30),
-                lineHeight: 1.2,
-            },
-            h4: {
-                fontSize: defaultTheme.typography.pxToRem(24),
-                fontWeight: 600,
-                lineHeight: 1.5,
-            },
-            h5: {
-                fontSize: defaultTheme.typography.pxToRem(20),
-                fontWeight: 600,
-            },
-            h6: {
-                fontSize: defaultTheme.typography.pxToRem(18),
-                fontWeight: 600,
-            },
-            subtitle1: {
-                fontSize: defaultTheme.typography.pxToRem(18),
-            },
-            subtitle2: {
-                fontSize: defaultTheme.typography.pxToRem(14),
-                fontWeight: 500,
-            },
-            body1: {
-                fontSize: defaultTheme.typography.pxToRem(14),
-            },
-            body2: {
-                fontSize: defaultTheme.typography.pxToRem(14),
-                fontWeight: 400,
-            },
-            caption: {
-                fontSize: defaultTheme.typography.pxToRem(12),
-                fontWeight: 400,
-            },
-        },
-        shape: {
-            borderRadius: 8,
-        },
-        shadows: customShadows,
-    };
-};
-
-export const colorSchemes = {
-    light: {
-        palette: {
-            primary: {
-                light: green[300],
-                main: green[400],
-                dark: green[700],
-                contrastText: '#ffffff',
-            },
-            secondary: {
-                light: pink[200],
-                main: pink[300], // cherry blossom
-                dark: pink[600],
-                contrastText: '#ffffff',
-             },
-            accent1: {
-                light: peach[200],
-                main: peach[300], // cherry blossom
-                dark: peach[600],
-                contrastText: '#ffffff',
-            },
-            accent2: {
-                light: lavender[200],
-                main: lavender[300], // cherry blossom
-                dark: lavender[600],
-                contrastText: '#ffffff',
-            },
-            info: {
-                light: brand[100],
-                main: brand[300],
-                dark: brand[600],
-                contrastText: gray[50],
-            },
-            warning: {
-                light: orange[300],
-                main: orange[400],
-                dark: orange[800],
-            },
-            error: {
-                light: red[300],
-                main: red[400],
-                dark: red[800],
-            },
-            success: {
-                light: green[300],
-                main: green[400],
-                dark: green[800],
-            },
-            grey: {
-                ...gray,
-            },
-            divider: alpha(gray[300], 0.4),
-            background: {
-                default: '#ffffff',
-                paper: '#ffffff',
-            },
-            text: {
-                primary: gray[800],
-                secondary: gray[600],
-                warning: orange[400],
-            },
-            action: {
-                hover: alpha(gray[200], 0.2),
-                selected: `${alpha(gray[200], 0.3)}`,
-            },
-            baseShadow:
-                'hsla(220, 30%, 5%, 0.07) 0px 4px 16px 0px, hsla(220, 25%, 10%, 0.07) 0px 8px 16px -5px',
-        },
-
-    },
-};
-
-export const typography = {
-    fontFamily: 'Inter, sans-serif',
-    h1: {
-        fontSize: defaultTheme.typography.pxToRem(48),
-        fontWeight: 600,
-        lineHeight: 1.2,
-        letterSpacing: -0.5,
-    },
-    h2: {
-        fontSize: defaultTheme.typography.pxToRem(36),
-        fontWeight: 600,
-        lineHeight: 1.2,
-    },
-    h3: {
-        fontSize: defaultTheme.typography.pxToRem(30),
-        lineHeight: 1.2,
-    },
-    h4: {
-        fontSize: defaultTheme.typography.pxToRem(24),
-        fontWeight: 600,
-        lineHeight: 1.5,
-    },
-    h5: {
-        fontSize: defaultTheme.typography.pxToRem(20),
-        fontWeight: 600,
-    },
-    h6: {
-        fontSize: defaultTheme.typography.pxToRem(18),
-        fontWeight: 600,
-    },
-    subtitle1: {
-        fontSize: defaultTheme.typography.pxToRem(18),
-    },
-    subtitle2: {
-        fontSize: defaultTheme.typography.pxToRem(14),
-        fontWeight: 500,
-    },
-    body1: {
-        fontSize: defaultTheme.typography.pxToRem(14),
-    },
-    body2: {
-        fontSize: defaultTheme.typography.pxToRem(14),
-        fontWeight: 400,
-    },
-    caption: {
-        fontSize: defaultTheme.typography.pxToRem(12),
-        fontWeight: 400,
-    },
-};
-
-export const shape = {
-    borderRadius: 8,
-};
-
-// @ts-ignore
-const defaultShadows: Shadows = [
+const customShadows: Shadows = [
     'none',
-    'var(--template-palette-baseShadow)',
-    ...defaultTheme.shadows.slice(2),
-];;
-export const shadows = defaultShadows;
+    '0 1px 2px 0 rgba(31, 75, 57, 0.05)',
+    '0 1px 3px 0 rgba(31, 75, 57, 0.1), 0 1px 2px 0 rgba(31, 75, 57, 0.06)',
+    '0 4px 6px -1px rgba(31, 75, 57, 0.1), 0 2px 4px -1px rgba(31, 75, 57, 0.06)',
+    '0 10px 15px -3px rgba(31, 75, 57, 0.1), 0 4px 6px -2px rgba(31, 75, 57, 0.05)',
+    '0 20px 25px -5px rgba(31, 75, 57, 0.1), 0 10px 10px -5px rgba(31, 75, 57, 0.04)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+    '0 25px 50px -12px rgba(31, 75, 57, 0.15)',
+];
 
-const theme = createTheme({
-    palette: colorSchemes.light.palette,
-    typography,
-    shape,
-    shadows,
+const lightPalette: PaletteOptions = {
+    mode: 'light',
+    primary: {
+        ...forestGreen,
+        main: forestGreen[500],
+    },
+    secondary: {
+        ...slate,
+        main: slate[500],
+    },
+    error: {
+        ...coral,
+        main: coral[500],
+    },
+    warning: {
+        ...gold,
+        main: gold[500],
+    },
+    info: {
+        ...mintGreen,
+        main: mintGreen[500],
+    },
+    success: {
+        ...forestGreen,
+        main: forestGreen[500],
+    },
+    background: {
+        default: gray[50],
+        paper: '#ffffff',
+    },
+    text: {
+        primary: gray[900],
+        secondary: gray[600],
+        disabled: gray[400],
+    },
+    divider: gray[200],
+    baseShadow: 'rgba(31, 75, 57, 0.12)',
+};
+
+const darkPalette: PaletteOptions = {
+    mode: 'dark',
+    primary: {
+        ...forestGreen,
+        main: forestGreen[500],
+    },
+    secondary: {
+        ...slate,
+        main: slate[500],
+    },
+    error: {
+        ...coral,
+        main: coral[500],
+    },
+    warning: {
+        ...gold,
+        main: gold[500],
+    },
+    info: {
+        ...mintGreen,
+        main: mintGreen[500],
+    },
+    success: {
+        ...forestGreen,
+        main: forestGreen[500],
+    },
+    background: {
+        default: gray[900],
+        paper: gray[800],
+    },
+    text: {
+        primary: gray[50],
+        secondary: gray[300],
+        disabled: gray[500],
+    },
+    divider: gray[700],
+    baseShadow: 'rgba(0, 0, 0, 0.32)',
+};
+
+export const lightTheme = createTheme({
+    palette: lightPalette,
+    shadows: customShadows,
+    typography: {
+        fontFamily: '"Inter", "Helvetica", "Arial", sans-serif',
+        h1: {
+            fontSize: '2.5rem',
+            fontWeight: 700,
+            lineHeight: 1.2,
+        },
+        h2: {
+            fontSize: '2rem',
+            fontWeight: 700,
+            lineHeight: 1.3,
+        },
+        h3: {
+            fontSize: '1.5rem',
+            fontWeight: 600,
+            lineHeight: 1.4,
+        },
+        h4: {
+            fontSize: '1.25rem',
+            fontWeight: 600,
+            lineHeight: 1.4,
+        },
+        h5: {
+            fontSize: '1rem',
+            fontWeight: 600,
+            lineHeight: 1.5,
+        },
+        h6: {
+            fontSize: '0.875rem',
+            fontWeight: 600,
+            lineHeight: 1.5,
+        },
+        body1: {
+            fontSize: '1rem',
+            lineHeight: 1.5,
+        },
+        body2: {
+            fontSize: '0.875rem',
+            lineHeight: 1.57,
+        },
+        button: {
+            textTransform: 'none',
+            fontWeight: 600,
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '8px',
+                    textTransform: 'none',
+                    fontWeight: 600,
+                    fontSize: '1rem',
+                    padding: '10px 20px',
+                    transition: 'all 0.2s ease',
+                    '&:hover': {
+                        transform: 'translateY(-2px)',
+                    },
+                },
+                contained: {
+                    boxShadow: `0 4px 6px -1px ${alpha(forestGreen[500], 0.1)}`,
+                },
+                containedPrimary: {
+                    backgroundColor: forestGreen[500],
+                    color: '#ffffff',
+                    '&:hover': {
+                        backgroundColor: forestGreen[600],
+                        boxShadow: `0 10px 15px -3px ${alpha(forestGreen[500], 0.2)}`,
+                    },
+                },
+                containedSecondary: {
+                    backgroundColor: slate[500],
+                    color: '#ffffff',
+                    '&:hover': {
+                        backgroundColor: slate[600],
+                        boxShadow: `0 10px 15px -3px ${alpha(slate[500], 0.2)}`,
+                    },
+                },
+            },
+        },
+        MuiCard: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '12px',
+                    border: `1px solid ${gray[200]}`,
+                    boxShadow: `0 1px 3px 0 ${alpha(forestGreen[500], 0.1)}`,
+                },
+            },
+        },
+        MuiPaper: {
+            variants: [
+                {
+                    props: { variant: 'highlighted' },
+                    style: {
+                        backgroundColor: alpha(forestGreen[50], 0.5),
+                        border: `1px solid ${forestGreen[200]}`,
+                    },
+                },
+            ],
+            styleOverrides: {
+                root: {
+                    backgroundImage: 'none',
+                    borderRadius: '12px',
+                },
+            },
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    borderRadius: '6px',
+                    fontWeight: 500,
+                },
+                filledPrimary: {
+                    backgroundColor: alpha(forestGreen[500], 0.1),
+                    color: forestGreen[700],
+                },
+                filledSuccess: {
+                    backgroundColor: alpha(forestGreen[500], 0.1),
+                    color: forestGreen[700],
+                },
+                filledWarning: {
+                    backgroundColor: alpha(gold[500], 0.1),
+                    color: gold[700],
+                },
+                filledError: {
+                    backgroundColor: alpha(coral[500], 0.1),
+                    color: coral[700],
+                },
+            },
+        },
+        MuiTextField: {
+            styleOverrides: {
+                root: {
+                    '& .MuiOutlinedInput-root': {
+                        borderRadius: '8px',
+                        '&:hover fieldset': {
+                            borderColor: forestGreen[300],
+                        },
+                        '&.Mui-focused fieldset': {
+                            borderColor: forestGreen[500],
+                        },
+                    },
+                },
+            },
+        },
+        MuiAppBar: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: '#ffffff',
+                    color: gray[900],
+                    boxShadow: `0 1px 3px 0 ${alpha(forestGreen[500], 0.1)}`,
+                },
+            },
+        },
+        MuiLink: {
+            styleOverrides: {
+                root: {
+                    color: forestGreen[600],
+                    textDecoration: 'none',
+                    cursor: 'pointer',
+                    transition: 'color 0.2s ease',
+                    '&:hover': {
+                        color: forestGreen[700],
+                        textDecoration: 'underline',
+                    },
+                },
+            },
+        },
+    },
 });
 
-export default theme;
+export const darkTheme = createTheme({
+    palette: darkPalette,
+    shadows: customShadows,
+    typography: lightTheme.typography,
+    components: lightTheme.components,
+});
+
+export default lightTheme;

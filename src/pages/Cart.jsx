@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 import { ref, get, set, push, update, remove } from 'firebase/database';
 import { Link as RouterLink } from 'react-router-dom';
+import { forestGreen, slate, gold, coral, mintGreen, cream } from '../components/shared-theme/themePrimitives';
 
 import {
     Container,
@@ -266,7 +267,11 @@ export default function Cart() {
 
     return (
         <Container maxWidth="lg" sx={{ py: 4 }}>
-            <Typography variant="h3" component="h1" gutterBottom>
+            <Typography sx={{ fontFamily: '"Meow Script", "Meow Script_R", cursive',
+                fontSize: { xs: '3rem', md: '4rem' },
+                color: forestGreen[500],
+                fontWeight: 550,
+            }} variant="h3" component="h1" gutterBottom>
                 Shopping Cart
             </Typography>
 
@@ -278,7 +283,8 @@ export default function Cart() {
                     <CircularProgress />
                 </Box>
             ) : cartItems.length === 0 ? (
-                <Alert severity="info" sx={{ mt: 3 }}>
+                <Alert severity="info" sx={{ mt: 3, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                    color: forestGreen[500] }}>
                     Your cart is empty. Start shopping!
                 </Alert>
             ) : (
@@ -286,41 +292,60 @@ export default function Cart() {
                     <TableContainer component={Paper} sx={{ mb: 4 }}>
                         <Table>
                             <TableHead>
-                                <TableRow sx={{ backgroundColor: '#f5f5f5' }}>
-                                    <TableCell><strong>Product</strong></TableCell>
-                                    <TableCell align="right"><strong>Price</strong></TableCell>
-                                    <TableCell align="center"><strong>Quantity</strong></TableCell>
-                                    <TableCell align="right"><strong>Subtotal</strong></TableCell>
-                                    <TableCell align="center"><strong>Action</strong></TableCell>
+                                <TableRow sx={{ backgroundColor: mintGreen[500],  }}>
+                                    <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: forestGreen[500]}}><strong>Product</strong></TableCell>
+                                    <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: forestGreen[500]}} align="right"><strong>Price</strong></TableCell>
+                                    <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: forestGreen[500]}} align="center"><strong>Quantity</strong></TableCell>
+                                    <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: forestGreen[500]}} align="right"><strong>Subtotal</strong></TableCell>
+                                    <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                        color: forestGreen[500]}} align="center"><strong>Delete</strong></TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody>
+                            <TableBody sx={{ backgroundColor: cream[500] }}>
                                 {cartItems.map((item) => (
                                     <TableRow key={item.id}>
                                         <TableCell>
                                             <Box>
-                                                <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
+                                                <Typography variant="body2" sx={{ fontWeight: 'bold', fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500] }}>
                                                     {item.name}
                                                 </Typography>
-                                                <Typography variant="caption" sx={{ color: 'text.secondary' }}>
+                                                <Typography variant="caption" sx={{ fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500] }}>
                                                     {item.store} • {item.category}
                                                 </Typography>
                                             </Box>
                                         </TableCell>
-                                        <TableCell align="right">${item.price.toFixed(2)}</TableCell>
+                                        <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            color: forestGreen[500]}} align="right">${item.price.toFixed(2)}</TableCell>
                                         <TableCell align="center">
-                                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}>
+                                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1, }}>
                                                 <Button
+                                                    sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                        color: forestGreen[500],borderColor: forestGreen[500],
+                                                        '&:hover': {
+                                                            borderColor: forestGreen[700],
+                                                            backgroundColor: mintGreen[500],} }}
                                                     size="small"
                                                     variant="outlined"
                                                     onClick={() => updateQuantity(item.id, item.quantity - 1)}
                                                 >
                                                     <RemoveIcon fontSize="small" />
                                                 </Button>
-                                                <Typography sx={{ minWidth: '30px', textAlign: 'center' }}>
+                                                <Typography sx={{ minWidth: '30px', textAlign: 'center', fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500] }}>
                                                     {item.quantity}
                                                 </Typography>
                                                 <Button
+                                                    sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                        color: forestGreen[500],borderColor: forestGreen[500],
+                                                        '&:hover': {
+                                                            borderColor: forestGreen[700],
+                                                            backgroundColor: mintGreen[500],} }}
                                                     size="small"
                                                     variant="outlined"
                                                     onClick={() => updateQuantity(item.id, item.quantity + 1)}
@@ -329,15 +354,18 @@ export default function Cart() {
                                                 </Button>
                                             </Box>
                                         </TableCell>
-                                        <TableCell align="right">
+                                        <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            color: forestGreen[500]}} align="right">
                                             ${(item.price * item.quantity).toFixed(2)}
                                         </TableCell>
-                                        <TableCell align="center">
+                                        <TableCell sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            color: forestGreen[500]}} align="center">
                                             <Button
                                                 size="small"
                                                 color="error"
                                                 variant="text"
                                                 onClick={() => removeFromCart(item.id)}
+                                                sx={{color: coral[500]}}
                                             >
                                                 <DeleteIcon fontSize="small" />
                                             </Button>
@@ -355,28 +383,35 @@ export default function Cart() {
                                 variant="outlined"
                                 component={RouterLink}
                                 to="/in-store-shopping"
+                                sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                    color: forestGreen[500],borderColor: forestGreen[500],
+                                    '&:hover': {
+                                        borderColor: forestGreen[700],
+                                        backgroundColor: mintGreen[500],} }}
                             >
                                 Open In-Person Shopping View
                             </Button>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <Card>
+                            <Card sx={{backgroundColor: cream[500]}}>
                                 <CardContent>
-                                    <Typography variant="h6" gutterBottom>
+                                    <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500],fontSize: { xs: '2rem', md: '2rem' },}} variant="h6" gutterBottom>
                                         Order Summary
                                     </Typography>
                                     <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                                        <Typography>Subtotal:</Typography>
-                                        <Typography>${subtotal.toFixed(2)}</Typography>
+                                        <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            color: forestGreen[500]}}>Subtotal:</Typography>
+                                        <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            color: forestGreen[500]}}>${subtotal.toFixed(2)}</Typography>
                                     </Box>
                                 </CardContent>
                             </Card>
                         </Grid>
                     </Grid>
 
-                    <Card sx={{ mt: 3 }}>
+                    <Card sx={{ mt: 3, backgroundColor: cream[500] }}>
                         <CardContent>
-                            <Typography variant="h6" gutterBottom>
+                            <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500],fontSize: { xs: '2rem', md: '2rem' },}} variant="h6" gutterBottom>
                                 Budget Tracker
                             </Typography>
                             {isEditingBudget ? (
@@ -389,14 +424,46 @@ export default function Cart() {
                                         onChange={(e) => setBudgetInput(e.target.value)}
                                         inputProps={{ min: 0, step: 0.01 }}
                                         fullWidth
+                                        sx={{
+                                            '& .MuiOutlinedInput-root': {
+                                                color: forestGreen[500], // Input text color
+                                                '& fieldset': {
+                                                    borderColor: forestGreen[500], // Border color
+                                                },
+                                                '&:hover fieldset': {
+                                                    borderColor: forestGreen[700], // Border on hover
+                                                },
+                                                '&.Mui-focused fieldset': {
+                                                    borderColor: forestGreen[500], // Border when focused
+                                                }
+                                            },
+                                            '& .MuiInputBase-input': {
+                                                color: forestGreen[500], // Text color
+                                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            },
+                                            '& .MuiInputLabel-root': {
+                                                color: forestGreen[500], // Label color
+                                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            },
+                                            '& .MuiInputLabel-root.Mui-focused': {
+                                                color: forestGreen[500], // After click color
+                                            },
+                                        }}
                                     />
-                                    <Button variant="contained" onClick={saveBudget}>
+                                    <Button sx={{ backgroundColor: forestGreen[500], color: cream[500],'&:hover': {
+                                            backgroundColor: mintGreen[700], // Hover color
+                                        }, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }} variant="contained" onClick={saveBudget}>
                                         Save
                                     </Button>
                                 </Box>
                             ) : (
                                 <Box sx={{ mb: 2 }}>
                                     <Button
+                                        sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                            color: forestGreen[500],borderColor: forestGreen[500],
+                                            '&:hover': {
+                                                borderColor: forestGreen[700],
+                                                backgroundColor: mintGreen[500],} }}
                                         variant="outlined"
                                         onClick={() => {
                                             setBudgetInput(budget !== null ? budget.toString() : '');
@@ -409,15 +476,18 @@ export default function Cart() {
                             )}
 
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 1 }}>
-                                <Typography>Budget:</Typography>
-                                <Typography>{budget !== null ? `$${budget.toFixed(2)}` : 'Not set'}</Typography>
+                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                    color: forestGreen[500]}}>Budget:</Typography>
+                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                    color: forestGreen[500]}}>{budget !== null ? `$${budget.toFixed(2)}` : 'Not set'}</Typography>
                             </Box>
                             <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 2 }}>
-                                <Typography>Money Left:</Typography>
+                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                    color: forestGreen[500]}}>Money Left:</Typography>
                                 <Typography
                                     sx={{
                                         fontWeight: 'bold',
-                                        color: remainingBudget !== null && remainingBudget < 0 ? 'error.main' : 'success.main',
+                                        color: remainingBudget !== null && remainingBudget < 0 ? coral[500] : forestGreen[800],
                                     }}
                                 >
                                     {remainingBudget !== null ? `$${remainingBudget.toFixed(2)}` : 'Set a budget'}
@@ -428,12 +498,12 @@ export default function Cart() {
 
                             <Grid container spacing={3}>
                                 <Grid item xs={12} md={6}>
-                                    <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                                    <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500],fontSize: { xs: '2rem', md: '2rem' },}} variant="subtitle2">
                                         Spending by Category
                                     </Typography>
                                     {Object.keys(spendingByCategory).length === 0 ? (
                                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                                            No category spend yet.
+                                            Nothing is in your cart yet
                                         </Typography>
                                     ) : (
                                         Object.entries(spendingByCategory).map(([category, amount]) => (
@@ -441,20 +511,22 @@ export default function Cart() {
                                                 key={category}
                                                 sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.75 }}
                                             >
-                                                <Typography variant="body2">{category}</Typography>
-                                                <Typography variant="body2">${amount.toFixed(2)}</Typography>
+                                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500]}} variant="body2">{category}</Typography>
+                                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500]}} variant="body2">${amount.toFixed(2)}</Typography>
                                             </Box>
                                         ))
                                     )}
                                 </Grid>
 
                                 <Grid item xs={12} md={6}>
-                                    <Typography variant="subtitle2" sx={{ mb: 1 }}>
+                                    <Typography variant="subtitle2" sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500],fontSize: { xs: '2rem', md: '2rem' },}}>
                                         Spending by Store
                                     </Typography>
                                     {Object.keys(spendingByStore).length === 0 ? (
                                         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                                            No store spend yet.
+                                            Nothing is in your cart yet
                                         </Typography>
                                     ) : (
                                         Object.entries(spendingByStore).map(([store, amount]) => (
@@ -462,8 +534,10 @@ export default function Cart() {
                                                 key={store}
                                                 sx={{ display: 'flex', justifyContent: 'space-between', mb: 0.75 }}
                                             >
-                                                <Typography variant="body2">{store}</Typography>
-                                                <Typography variant="body2">${amount.toFixed(2)}</Typography>
+                                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500]}} variant="body2">{store}</Typography>
+                                                <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                    color: forestGreen[500]}} variant="body2">${amount.toFixed(2)}</Typography>
                                             </Box>
                                         ))
                                     )}

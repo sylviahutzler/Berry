@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { ref, get, set, push, remove, update } from 'firebase/database';
-import { auth, database } from '../../firebase';
+import { auth, database } from '../firebase';
+import { forestGreen, slate, gold, coral } from '../components/shared-theme/themePrimitives';
 import {
     Container,
     Typography,
@@ -19,6 +20,7 @@ import {
     ListItemIcon,
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
+
 
 export default function CreateList() {
     const [user, setUser] = useState(null);
@@ -137,7 +139,7 @@ export default function CreateList() {
 
     return (
         <Container maxWidth="md" sx={{ py: 4 }}>
-            <Typography variant="h3" component="h1" gutterBottom>
+            <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: coral[500]}} variant="h3" component="h1" gutterBottom>
                 Shopping List
             </Typography>
 
@@ -149,18 +151,50 @@ export default function CreateList() {
             {error && <Alert severity="error" sx={{ mb: 3 }}>{error}</Alert>}
             {success && <Alert severity="success" sx={{ mb: 3 }}>{success}</Alert>}
 
-            <Card sx={{ mb: 3 }}>
+            <Card sx={{ mb: 3,
+                backgroundColor:  '#faf3dd',
+                }}>
                 <CardContent>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" gutterBottom sx={{ mb: 1, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                        color: coral[500], }}>
                         Add Item
                     </Typography>
-                    <Box sx={{ display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                    <Box sx={{ display: 'flex',
+                        gap: 1,
+                        flexWrap: 'wrap',
+                       }}>
                         <TextField
                             label="Item name"
                             value={itemName}
                             onChange={(e) => setItemName(e.target.value)}
-                            sx={{ flex: 1, minWidth: 220 }}
                             disabled={!user}
+                            sx={{ flex: 1,
+                                minWidth: 220,
+                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                color: coral[500],
+                                '& .MuiOutlinedInput-root': {
+                                    color: slate[500], // Input text color
+                                    '& fieldset': {
+                                        borderColor: coral[500], // Border color
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: coral[500], // Border on hover
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: coral[500], // Border when focused
+                                    }
+                                },
+                                '& .MuiInputBase-input': {
+                                    color: coral[500], // Text color
+                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: coral[500], // Label color
+                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: coral[500], // After click color
+                                },}}
                         />
                         <TextField
                             label="Qty"
@@ -168,19 +202,48 @@ export default function CreateList() {
                             value={quantity}
                             onChange={(e) => setQuantity(e.target.value)}
                             inputProps={{ min: 1 }}
-                            sx={{ width: 110 }}
+                            sx={{ width: 110, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                color: coral[500],
+                                '& .MuiOutlinedInput-root': {
+                                    color: slate[500], // Input text color
+                                    '& fieldset': {
+                                        borderColor: coral[500], // Border color
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: coral[500], // Border on hover
+                                    },
+                                    '&.Mui-focused fieldset': {
+                                        borderColor: coral[500], // Border when focused
+                                    }
+                                },
+                                '& .MuiInputBase-input': {
+                                    color: coral[500], // Text color
+                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                },
+                                '& .MuiInputLabel-root': {
+                                    color: coral[500], // Label color
+                                    fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                },
+                                '& .MuiInputLabel-root.Mui-focused': {
+                                    color: coral[500], // After click color
+                                }, }}
                             disabled={!user}
                         />
-                        <Button variant="contained" onClick={addItem} disabled={!user}>
+                        <Button variant="contained" onClick={addItem} disabled={!user} sx={{
+                            fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',backgroundColor:  coral[500],color:'#faf3dd'
+                        }}>
                             Add
                         </Button>
                     </Box>
                 </CardContent>
             </Card>
 
-            <Card>
+            <Card sx={{ mb: 3,
+                backgroundColor:  '#faf3dd',
+            }}>
                 <CardContent>
-                    <Typography variant="h6" gutterBottom>
+                    <Typography variant="h6" sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                        color: coral[500],}} gutterBottom>
                         Your List ({items.length})
                     </Typography>
                     {loading ? (
@@ -190,19 +253,22 @@ export default function CreateList() {
                             No items yet.
                         </Typography>
                     ) : (
-                        <List disablePadding>
+                        <List sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                            color: coral[500],}} disablePadding>
                             {items.map((item) => (
                                 <ListItem
                                     key={item.id}
                                     divider
                                     secondaryAction={(
-                                        <IconButton edge="end" onClick={() => removeItem(item.id)}>
+                                        <IconButton sx={{color: coral[500]}} edge="end" onClick={() => removeItem(item.id)}>
                                             <DeleteIcon />
                                         </IconButton>
                                     )}
                                 >
                                     <ListItemIcon sx={{ minWidth: 36 }}>
                                         <Checkbox
+                                            sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                color: coral[500],}}
                                             edge="start"
                                             checked={Boolean(item.completed)}
                                             onChange={() => toggleCompleted(item)}

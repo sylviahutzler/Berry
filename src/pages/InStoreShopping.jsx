@@ -11,6 +11,7 @@ import {
     CardContent,
     Divider,
 } from '@mui/material';
+import { forestGreen, slate, gold, coral, mintGreen, cream } from '../components/shared-theme/themePrimitives';
 
 const auth = getAuth();
 const database = getDatabase();
@@ -89,10 +90,11 @@ export default function InStoreShopping() {
 
     return (
         <Container maxWidth="lg" sx={{ py: 4 }}>
-            <Typography variant="h3" component="h1" gutterBottom>
+            <Typography sx={{fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500],}} variant="h3" component="h1" gutterBottom>
                 In-Person Shopping View
             </Typography>
-            <Typography variant="body1" sx={{ color: 'text.secondary', mb: 3 }}>
+            <Typography variant="body1" sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                color: forestGreen[500], mb: 3}}>
                 Your cart organized by store and aisle/location.
             </Typography>
 
@@ -106,23 +108,24 @@ export default function InStoreShopping() {
                 <Alert severity="info">Your cart is empty.</Alert>
             ) : (
                 Object.entries(groupedItems).map(([store, locations]) => (
-                    <Card key={store} sx={{ mb: 3 }}>
+                    <Card key={store} sx={{ mb: 3, backgroundColor: cream[500], p: 2 }}>
                         <CardContent>
-                            <Typography variant="h5" sx={{ mb: 2 }}>
+                            <Typography variant="h5" sx={{ mb: 2, fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500], fontSize: { xs: '2rem', md: '2rem' } }}>
                                 {store}
                             </Typography>
                             {Object.entries(locations).map(([location, items], index) => (
                                 <Box key={location} sx={{ mb: index < Object.keys(locations).length - 1 ? 2 : 0 }}>
-                                    <Typography variant="subtitle1" sx={{ fontWeight: 'bold', mb: 1 }}>
+                                    <Typography variant="subtitle1" sx={{  mb: 1, fontFamily: '"Meow Script", "Meow Script_R", cursive', color: forestGreen[500], fontSize: { xs: '1.5rem', md: '1.5rem' } }}>
                                         {location}
                                     </Typography>
                                     {items.map((item) => (
                                         <Box
                                             key={item.id}
-                                            sx={{ display: 'flex', justifyContent: 'space-between', py: 0.5 }}
+                                            sx={{ display: 'flex', justifyContent: 'space-between', py: 0.5,
+                                                color: forestGreen[500] }}
                                         >
-                                            <Typography variant="body2">{item.name}</Typography>
-                                            <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                                            <Typography sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',}} variant="body2">{item.name}</Typography>
+                                            <Typography variant="body2" sx={{ fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }}>
                                                 Qty: {item.quantity || 1}
                                             </Typography>
                                         </Box>

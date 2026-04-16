@@ -19,10 +19,10 @@ export default function AppTheme(props: AppThemeProps) {
                 palette: {
                     mode: 'light',
                     primary: {
-                        main: '#8B9D83',
+                        main: '#2f6f4e',
                     },
                     secondary: {
-                        main: '#f50057',
+                        main: '#4e6e81',
                     },
                 },
                 typography: {
