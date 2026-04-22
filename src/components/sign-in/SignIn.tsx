@@ -82,7 +82,7 @@ export default function SignIn() {
     <AppTheme>
       <CssBaseline enableColorScheme />
       <SignInContainer direction="column" justifyContent="center">
-        <Card sx={{ backgroundColor: cream[500], p: 2 }} variant="outlined"variant="outlined">
+        <Card sx={{ backgroundColor: cream[500], p: 2 }} variant="outlined">
           <Typography component="h1" variant="h4" sx={{ textAlign: "center", fontFamily: '"Meow Script", "Meow Script_R", cursive', color: slate[500], }}>
             Sign In
           </Typography>
