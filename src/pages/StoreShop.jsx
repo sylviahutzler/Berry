@@ -15,6 +15,8 @@ import {
     Button,
     Divider,
     TextField,
+    ListItemIcon,
+    Checkbox,
 } from '@mui/material';
 import { collection, getDocs } from 'firebase/firestore';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -35,6 +37,7 @@ export default function StoreProducts() {
     const [budgetInput, setBudgetInput] = useState('');
     const [isEditingBudget, setIsEditingBudget] = useState(true);
     const [cartItems, setCartItems] = useState([]);
+    const [items, setItems] = useState([]);
 
     function encodeEmail(email) {
         return email.replace(/\./g, '_');
@@ -64,6 +67,31 @@ export default function StoreProducts() {
     useEffect(() => {
         loadProducts();
     }, []);
+
+    // Load list from Firebase Realtime Database
+    async function loadList(userEmail) {
+        try {
+            setError('');
+            setLoading(true);
+            const listRef = ref(database, `shoppingLists/${userEmail}`);
+            const snapshot = await get(listRef);
+
+            if (snapshot.exists()) {
+                const listItems = snapshot.val();
+                const asArray = Object.keys(listItems).map((key) => ({
+                    id: key,
+                    ...listItems[key],
+                }));
+                setItems(asArray);
+            } else {
+                setItems([]);
+            }
+            setLoading(false);
+        } catch (err) {
+            setError('Error loading list: ' + err.message);
+            setLoading(false);
+        }
+    }
 
     async function loadProducts() {
         try {
@@ -176,6 +204,19 @@ export default function StoreProducts() {
             setTimeout(() => setSuccess(''), 2000);
         } catch (err) {
             setError('Error saving budget: ' + err.message);
+        }
+    }
+
+    async function toggleCompleted(item) {
+        if (!user) return;
+        try {
+            const userEmail = encodeEmail(user.email);
+            await update(ref(database, `shoppingLists/${userEmail}/${item.id}`), {
+                completed: !item.completed,
+            });
+            await loadShoppingList(userEmail);
+        } catch (err) {
+            setError('Error updating item: ' + err.message);
         }
     }
 
@@ -383,11 +424,31 @@ export default function StoreProducts() {
                                         <Box
                                             key={item.id}
                                             sx={{
-                                                color: cream[500], display: 'flex',
+                                                color: cream[500],
+                                                display: 'flex',
+                                                alignItems: 'center',
                                                 justifyContent: 'space-between',
-                                                mb: 0.75 }}
+                                                mb: 0.75}}
                                         >
-                                            <Typography variant="body2" sx={{ pr: 1, fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }}>
+                                                <Checkbox
+                                                    sx={{
+                                                        color: cream[500],
+                                                        padding: '2px',
+                                                        '&.Mui-checked': {
+                                                            color: coral[500],
+                                                        },
+                                                    }}
+                                                    checked={Boolean(item.completed)}
+                                                    onChange={() => toggleCompleted(item)}
+                                                    size="small"
+                                                />
+                                            <Typography variant="body2" sx={{
+                                                flex: 1,
+                                                pr: 1,
+                                                fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
+                                                textDecoration: item.completed ? 'line-through' : 'none',
+                                                opacity: item.completed ? 0.5 : 1,
+                                            }}>
                                                 {item.name}
                                             </Typography>
                                             <Typography variant="body2" sx={{  fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif', }}>

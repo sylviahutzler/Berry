@@ -22,7 +22,7 @@ function Home() {
                 mb: 3,
                 fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
                 color: gold[500], }}>
-                Plan smarter grocery trips with your list, budget, and in-store efficiency.
+                Plan smarter grocery trips with your list, budget, and in-store shopping list.
             </Typography>
 
             <Grid container spacing={2}>

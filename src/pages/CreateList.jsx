@@ -35,6 +35,7 @@ export default function CreateList() {
         return email.replace(/\./g, '_');
     }
 
+    // Check if user is logged in
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -49,6 +50,8 @@ export default function CreateList() {
         return () => unsubscribe();
     }, []);
 
+
+    // Load list from Firebase Realtime Database
     async function loadList(userEmail) {
         try {
             setError('');
@@ -73,6 +76,7 @@ export default function CreateList() {
         }
     }
 
+    // Add item to the list
     async function addItem() {
         if (!user) {
             setError('Please sign in to create a shopping list');
@@ -113,6 +117,7 @@ export default function CreateList() {
         }
     }
 
+    // Remove item from list
     async function removeItem(itemId) {
         if (!user) return;
         try {
@@ -124,6 +129,7 @@ export default function CreateList() {
         }
     }
 
+    // Updates the lists when the checkbox is checked
     async function toggleCompleted(item) {
         if (!user) return;
         try {

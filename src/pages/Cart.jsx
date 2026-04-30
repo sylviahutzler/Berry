@@ -3,7 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 import { ref, get, set, push, update, remove } from 'firebase/database';
 import { Link as RouterLink } from 'react-router-dom';
-import { forestGreen, slate, gold, coral, mintGreen, cream } from '../components/shared-theme/themePrimitives';
+import { forestGreen, coral, mintGreen, cream } from '../components/shared-theme/themePrimitives';
 
 import {
     Container,
@@ -74,7 +74,6 @@ export default function Cart() {
 
             if (snapshot.exists()) {
                 const items = snapshot.val();
-                // Convert object to array
                 const itemsArray = Object.keys(items).map((key) => ({
                     id: key,
                     ...items[key],
@@ -91,6 +90,7 @@ export default function Cart() {
         }
     }
 
+    // Load budget from Firebase Realtime Database
     async function loadBudget(userEmail) {
         try {
             const budgetRef = ref(database, `budgets/${userEmail}`);
@@ -111,6 +111,7 @@ export default function Cart() {
         }
     }
 
+    // Budget
     async function saveBudget() {
         if (!user) return;
 
@@ -268,7 +269,7 @@ export default function Cart() {
     return (
         <Container maxWidth="lg" sx={{ py: 4 }}>
             <Typography sx={{ fontFamily: '"Meow Script", "Meow Script_R", cursive',
-                fontSize: { xs: '3rem', md: '4rem' },
+                fontSize: { xs: '3rem', md:   '4rem' },
                 color: forestGreen[500],
                 fontWeight: 550,
             }} variant="h3" component="h1" gutterBottom>
