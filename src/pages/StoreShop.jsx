@@ -39,10 +39,12 @@ export default function StoreProducts() {
     const [cartItems, setCartItems] = useState([]);
     const [items, setItems] = useState([]);
 
+    // Encode email address
     function encodeEmail(email) {
         return email.replace(/\./g, '_');
     }
 
+    // Check if user is logged in
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -93,6 +95,7 @@ export default function StoreProducts() {
         }
     }
 
+    //Load products from database
     async function loadProducts() {
         try {
             setError('');
@@ -126,6 +129,7 @@ export default function StoreProducts() {
         }
     }
 
+    // Load shopping list from database
     async function loadShoppingList(userEmail) {
         try {
             const listRef = ref(database, `shoppingLists/${userEmail}`);
@@ -145,6 +149,7 @@ export default function StoreProducts() {
         }
     }
 
+    // Load budget from database
     async function loadBudget(userEmail) {
         try {
             const budgetRef = ref(database, `budgets/${userEmail}`);
@@ -164,6 +169,7 @@ export default function StoreProducts() {
         }
     }
 
+    // Load cart items from database
     async function loadCartItems(userEmail) {
         try {
             const cartRef = ref(database, `carts/${userEmail}`);
@@ -183,6 +189,7 @@ export default function StoreProducts() {
         }
     }
 
+    // Save the budget to the database
     async function saveBudget() {
         if (!user) return;
         const parsedBudget = Number(budgetInput);
@@ -207,6 +214,7 @@ export default function StoreProducts() {
         }
     }
 
+    // Updates the lists when the checkbox is checked
     async function toggleCompleted(item) {
         if (!user) return;
         try {
@@ -220,6 +228,7 @@ export default function StoreProducts() {
         }
     }
 
+    // Add item to cart
     async function handleAddToCart(product) {
         if (!user) {
             setError('Please sign in to add items to cart');
@@ -283,6 +292,7 @@ export default function StoreProducts() {
         ? allProducts.filter(p => p.store === selectedStore)
         : allProducts;
 
+    // Budget calculations
     const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
     const remainingBudget = budget !== null ? budget - subtotal : null;
 
@@ -319,13 +329,25 @@ export default function StoreProducts() {
                         <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 3,   }}>
                             {uniqueStores.map((store) => (
                                 <Button
-                                    sx={{fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
-                                        color: slate[500],
+                                    sx={{
+                                        fontFamily: '"Barlow Condensed-R", "Barlow Condensed", sans-serif',
                                         borderColor: slate[500],
-                                        '&:hover': {
-                                            borderColor: slate[700],
-                                            backgroundColor: mintGreen[500],
-                                        }}}
+                                        // Selected state
+                                        ...(selectedStore === store ? {
+                                            backgroundColor: slate[500],
+                                            color: cream[500],
+                                            '&:hover': {
+                                                backgroundColor: slate[700],
+                                            },
+                                        } : {
+                                            // Unselected state
+                                            color: slate[500],
+                                            '&:hover': {
+                                                borderColor: slate[700],
+                                                backgroundColor: mintGreen[500],
+                                            },
+                                        }),
+                                    }}
                                     key={store}
                                     variant={selectedStore === store ? 'contained' : 'outlined'}
                                     onClick={() => setSelectedStore(store)}

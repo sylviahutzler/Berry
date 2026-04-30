@@ -22,10 +22,12 @@ export default function InStoreShopping() {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
+    // Encode emails
     function encodeEmail(email) {
         return email.replace(/\./g, '_');
     }
 
+    // Check if user is logged in
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -39,6 +41,7 @@ export default function InStoreShopping() {
         return () => unsubscribe();
     }, []);
 
+    // Load cart from firebase
     async function loadCart(userEmail) {
         try {
             setError('');
@@ -65,6 +68,7 @@ export default function InStoreShopping() {
         }
     }
 
+    // Group items by store then by isle in store
     const groupedItems = useMemo(() => {
         return cartItems.reduce((acc, item) => {
             const store = item.store || 'Unknown Store';
